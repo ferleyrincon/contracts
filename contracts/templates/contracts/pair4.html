@@ -1,0 +1,96 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+<style type="text/css">
+    .text {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .custom-control-inline {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 15px;
+        margin: auto;
+    }
+
+    .container-input {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .radio-inline {
+        position: absolute !important;
+        left: 50%;
+        transform: translateX(-54%) !important;
+        margin: 0 auto !important;
+        bottom: 5px !important;
+    }
+
+    .cont-text-radio {
+        margin-right: 12%;
+    }
+
+    .text-radio {
+        padding-top: 30px;
+        margin: 0;
+    }
+
+    .otree-body {
+        max-width: 100% !important;
+    }
+
+    .otree-btn-next {
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mb-5">
+        <div class="col text-center">
+            <h2 class="title">¿Cual <i>Contrato</i> usted prefiere?:</h2>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-4 align-self-center">
+                        <div class="container-input">
+                            <div class="cont-text-radio">
+                                <p class="text-radio">Contrato</p>
+                            </div>
+                            <div class="custom-control-inline">
+                                <input type="radio" id="contractA" name="contract" class="radio-inline">
+                                <label for="contractA">I</label>
+                            </div>
+                            <div class="custom-control-inline">
+                                <input type="radio" id="contractB" name="contract" class="radio-inline">
+                                <label for="contractB">D</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h2 class="title">Contrato</h2>
+            <p class="text">Pago: $100.000</p>
+            <p class="text">El seguro vale $20.000 [20% pago]</p>
+            <p class="text">Bono para quienes cumplan meta de tareas</p>
+            <p class="text">Trabajo Individual</p>
+        </div>
+        <div class="col text-center">
+            <h2 class="title">Contrato </h2>
+            <p class="text">Pago: $60.000</p>
+            <p class="text">El seguro vale $6.000 [10% pago]</p>
+            <p class="text">Bono para quienes cumplan meta de tareas</p>
+            <p class="text">Trabajo Individual</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

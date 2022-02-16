@@ -1,0 +1,94 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load user_agents %}
+
+{% block content %}
+
+<h1>Consentimiento Informado</h1>
+<p> Usted ha sido invitado a participar en esta actividad en la cual deberá tomar una serie de decisiones y responder algunas preguntas relacionadas con usted. 
+  El monto mínimo que recibirá por completar toda la actividad es de $20.000. 
+  Las decisiones y los pagos asociados a estas se explicarán en las instrucciones. </p>
+
+<p><b>Toda la información (decisiones y ganancias) que se recolecte en esta actividad será utilizada de manera confidencial por los investigadores del proyecto y con fines estrictamente académicos</b>. 
+  Su información individual no será compartida con el personal administrativo de la Universidad del Rosario, pues los datos serán anonimizados. 
+  Sus decisiones y respuestas no tendrán ningún efecto sobre su relación laboral (derechos y obligaciones) con la Universidad del Rosario.</p>
+
+<p>Su participación en este ejercicio es totalmente voluntaria. 
+  Usted puede retirarse en cualquier momento. 
+  Si decide retirarse antes de que la actividad termine, usted no recibirá ninguna ganancia. 
+  Usted también podrá ser retirado de la actividad luego de un segundo llamado de atención por no seguir las instrucciones de la actividad. 
+  En este caso tampoco recibirá ninguna ganancia. 
+  Adicionalmente, por protocolos de bioseguridad usted deberá permanecer con el tapabocas que le fue entregado, o con su tapabocas, durante toda la actividad. 
+  No seguir estas indicaciones pueden implicar que sea excluido de la actividad sin remuneración alguna.</p>
+
+<p>Si completa la actividad, sus ganancias serán procesadas después de que usted termine de responder la encuesta. 
+  Tras conocer sus ganancias usted debe diligenciar un cuestionario de pago con sus datos personales (nombre, documento de identidad, cuenta bancaria y número de celular donde contactarlo). 
+  Transferiremos sus ganancias en las siguientes 48 horas hábiles, una vez contemos con su información de su cuenta. 
+  Su información personal será borrada una vez se realice su pago.</p>
+
+<p>No hay riesgos previstos asociados con la participación en esta actividad. 
+  Si usted quiere una copia de este consentimiento informado, por favor, pregúntenos por ella y se la enviaremos por correo electrónico. 
+  Si tiene otras preguntas o inquietudes, puede resolverlas con la persona encargada de la actividad. </p>
+
+<p>Haga clic en las dos casillas si está de acuerdo en continuar. 
+  Si decide no continuar con el estudio, por favor cierre esta ventana y abandone la sesión de la actividad.</p>
+
+<p><b>ACEPTACIÓN:</b></p>
+<p>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="True" name="consent" id="consent">
+  <label class="form-check-label" for="consent">
+    Comprendo la información anterior y mis derechos y compromisos durante este ejercicio.
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="True" name="consent_account" id="consent_account">
+  <label class="form-check-label" for="consent_account">
+    Comprendo que recibiré mi pago en las 48 horas hábiles luego de enviar correctamente mi información bancaria.
+  </label>
+</div>
+</p>
+<div id='b_consent'>
+{% next_button %}
+</div>
+{% endblock %}
+
+{% block global_scripts %}
+<script>
+  var checkbox1 = $('#consent'), checkbox2 = $('#consent_account'),
+    chShipBlock = $('#b_consent'), consent = false, consent_account = false;
+
+  chShipBlock.hide();
+  checkbox1.on('click', function () {
+    if ($(this).is(':checked')) {
+      consent = true;
+    } else {
+      consent = false;
+    }
+    showButton()
+  });
+  checkbox2.on('click', function () {
+    if ($(this).is(':checked')) {
+      consent_account = true;
+    } else {
+      consent_account = false;
+    }
+    showButton()
+  });
+  function showButton() {
+    if (consent && consent_account) {
+      chShipBlock.show();
+    } else {
+      chShipBlock.hide();
+    }
+ }
+</script>
+{% endblock %}
+
+if($(this).is(':checked')) {
+chShipBlock.show();
+chShipBlock.find('input').attr('required', true);
+} else {
+chShipBlock.hide();
+chShipBlock.find('input').attr('required', false);
+}

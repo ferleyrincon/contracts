@@ -1,0 +1,62 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree %}
+{% load i18n %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** STYLES *** #}
+{# ****************************************************************************************************************** #}
+{% block styles %}
+    <link href="{% static 'bret/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** TITLE *** #}
+{# ****************************************************************************************************************** #}
+{% block title %}
+    {% trans "Instrucciones" %}
+{% endblock %}
+
+
+{# ****************************************************************************************************************** #}
+{# *** CONTENT *** #}
+{# ****************************************************************************************************************** #}
+{% block content %}
+
+    <div class="instructions">
+        <p>
+            {% blocktrans trimmed %}
+            Esta tarea consiste en 24 preguntas que implican la elección sobre algunos pagos a lo largo del tiempo. Cada pregunta tiene 6 opciones.  Para cada pregunta, usted debe elegir la opción que prefiera.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed %}
+            Las fechas de los pagos van a variar según la pregunta en la que se encuentre:
+            {% endblocktrans %}    
+                <ul>
+			        <li> {% blocktrans trimmed %}
+                    Preguntas 1 - 6: De la pregunta uno a la pregunta seis, se elige entre un PRIMER pago que recibirá HOY y otro SEGUNDO pago que recibirá en CINCO SEMANAS. 
+                    {% endblocktrans %} </li>
+			        <li> {% blocktrans trimmed %} Preguntas 7 - 12: De la pregunta siete a la pregunta doce, se elige entre un PRIMER pago que recibirá HOY y otro SEGUNDO pago que recibirá en DIEZ SEMANAS.
+                    {% endblocktrans %} </li>
+			        <li> {% blocktrans trimmed %} Preguntas 13 - 18: De la pregunta trece a la pregunta dieciocho, se elige entre un PRIMER pago que recibirá en CINCO SEMANAS y otro SEGUNDO pago que recibirá en DIEZ SEMANAS. 
+                    {% endblocktrans %} </li>
+			        <li> {% blocktrans trimmed %} Preguntas 19 - 24: De la pregunta diecinueve a la pregunta veinticuatro, se elige entre un PRIMER pago que recibirá en CINCO SEMANAS y otro SEGUNDO pago que recibirá en QUINCE SEMANAS. 
+                    {% endblocktrans %} </li>
+			    </ul>
+        </p>
+        <p>
+            {% blocktrans trimmed %}
+            Las 24 preguntas no se le pagarán. Se hará un sorteo para determinar qué pregunta a pagar. Es decir, sólo se le pagará la opción que se seleccione en el sorteo. Las fechas en que se hará el PRIMER y SEGUNDO pago dependerá de los resultados del sorteo.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% blocktrans trimmed %}
+            Su pago se hará a través de la plataforma Nequi, por medio de una transferencia que se verá reflejada en su cuenta Nequi en las dos fechas indicadas. Recuerde que las fechas serán determinadas por la pregunta seleccionada en el sorteo.
+            {% endblocktrans %}
+        </p>
+    </div>
+
+     {% next_button %}
+{% endblock %}
