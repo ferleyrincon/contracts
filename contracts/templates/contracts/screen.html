@@ -1,0 +1,58 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+            card_info = document.getElementsByClassName("debug-info")[0];
+
+            card_info.style.display = "none";
+
+
+        });
+
+        function next_page(){
+            formulario.submit();
+        };
+
+        setTimeout(next_page, 5000);
+
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="div_body">
+        <div style="position: absolute; width: 58vw; height: 4vh; top: 23vh; left: 21vw; text-align: center; vertical-align: middle; color: #000000;">
+            ¿En qué color está escrita la siguiente palabra?
+        </div>
+        
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 48vh; left: 46vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.word_color }};">
+            {{ cc.word }}
+        </div>
+        
+        {% if cc.left == 'w' %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.word_color }};">
+            {{ cc.opc1 }}
+        </div>
+        {% else %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.color }};">
+            {{ cc.opc1 }}
+        </div>
+        {% endif %}
+        
+        {% if cc.left == 'w' %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.color }};">
+            {{ cc.opc2 }}
+        </div>
+        {% else %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.word_color }};">
+            {{ cc.opc2 }}
+        </div>
+        {% endif %}
+        
+    </div>
+{% endblock %}
+

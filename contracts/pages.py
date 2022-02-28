@@ -185,7 +185,22 @@ class Comparacion(Page):
     pass
 
 
-page_sequence = [consent, Instrucciones]
+class config_screens(Page):
+    pass
+
+class screen(Page):
+    def vars_for_template(self):
+        index_config = int(self.player.n_contract)
+        cc = Constants.config_screens_c[index_config]
+        return {
+            "cc": cc
+        }
+
+    def before_next_page(self):
+        self.player.n_contract += 1
+
+page_sequence = [config_screens, screen, screen, screen, screen, screen, c1]
+
 preguntas = [
         c1,
         c2,

@@ -1,0 +1,71 @@
+/* ****************************************************************************************************************** */
+/* *** General *** */
+/* ****************************************************************************************************************** */
+.form, .debug-info {
+    display: none!important;
+}
+
+#update {
+    text-align: center;
+    margin: 30px;
+}
+
+
+/* ****************************************************************************************************************** */
+/* *** Figures *** */
+/* ****************************************************************************************************************** */
+#xy_scores {
+    display: inline-block;
+    float: left;
+}
+
+#archetypes {
+    display: inline-block;
+    float: right;
+}
+
+
+
+/* ****************************************************************************************************************** */
+/* *** Data Table *** */
+/* ****************************************************************************************************************** */
+.dropdown-item.active,
+.dropdown-item:active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #6c757d;
+}
+
+.dataTables_wrapper {
+    min-width: 930px;
+    max-width: 930px;
+    margin-top: 40px;
+    padding: 15px;
+}
+
+table.dataTable {
+    width: 900px!important;
+    border-collapse: collapse!important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.table td,
+.table th {
+    padding: .5rem!important;
+    vertical-align: middle!important;
+    text-align: center!important;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #ffffff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.page-link {
+    color: #6c757d;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+}

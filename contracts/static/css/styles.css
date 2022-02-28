@@ -1,0 +1,123 @@
+/* ****************************************************************************************************************** */
+/* *** General Appearance *** */
+/* ****************************************************************************************************************** */
+
+.otree-body {
+    min-width: 560px;
+    max-width: 940px;
+    margin: 0 auto 2.5rem;
+}
+
+.page-header {
+    margin: 2rem auto;
+    padding: 0;
+}
+
+h2 {
+    text-align: center !important;
+}
+
+.h4 {
+    margin: 1.75rem 0 0.75rem 0;
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+.otree-btn-next {
+    margin: 30px auto;
+    display: inherit;
+}
+
+
+/* ****************************************************************************************************************** */
+/* *** Decision/Results Table *** */
+/* ****************************************************************************************************************** */
+
+.card {
+    margin-bottom: 1.5rem;
+}
+
+.card_table{
+    margin-bottom: 1.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 0;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table>thead>tr>th,
+.table>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+    width: 20%;
+    min-width: 100px;
+    max-width: 150px;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.table thead tr:first-child {
+    border: hidden;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr:last-child {
+    border-bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.table td {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.table tr:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.formfield {
+    min-width: 120px;
+    max-width: 120px;
+}
+
+input[type="radio"] {
+    margin: auto 0.5rem;
+    vertical-align: middle;
+}
+
+.intermedio{
+    margin-top: 35px;
+}
+
+.slider_dinero, .slider_hora{
+    -webkit-appearance: none;
+    min-width: 250px;
+    width: 100%;
+    outline: none;
+    transition: opacity .2s;
+    border: 3px solid green;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 0px;
+}
+
+.slider_dinero:hover, .slider_hora:hover{
+    opacity: 1;
+}
+
+.table_question{
+    width: 100%;
+}
+
+.div_body{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh;
+    left: 0vw;
+}

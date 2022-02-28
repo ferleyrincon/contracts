@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <h2>CONFIGURACIÓN DE LAS SIGUIENTES PANTALLAS</h2>
+
+    <hr>
+
+    <h3>Pantallas Congruentes</h3>
+
+    <table class="table">
+        <thead>
+            <tt>
+                <th>Pantalla #</th>
+                <th>Word</th>
+                <th>Color</th>
+                <th>Left</th>
+                <th>Opc 1</th>
+                <th>Opc 2</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for con in Constants.config_screens_c %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ con.word }}</td>
+                <td>{{ con.color }}</td>
+                <td>{{ con.left }}</td>
+                <td>{{ con.opc1 }}</td>
+                <td>{{ con.opc2 }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% next_button %}
+{% endblock %}
+
