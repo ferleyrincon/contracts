@@ -58,8 +58,8 @@ class Constants(BaseConstants):
     ## Configuracion para las pantallas
         # Unificacion de las configuraciones para las pantallas congruentes
     lst_colors =    [
-                        '#0000ff',     # 0
-                        '#ff0000',      # 1
+                        '#0000ff',  # 0
+                        '#ff0000',  # 1
                         'yellow',   # 2
                         'green'     # 3
                     ]
@@ -243,10 +243,10 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     c1 =  models.IntegerField()
     c2 =  models.IntegerField()
-    c3 =  models.IntegerField()
-    c4 =  models.IntegerField()
-    c5 =  models.IntegerField()
-    c6 =  models.IntegerField()
+    c3 =  models.StringField()
+    c4 =  models.StringField()
+    c5 =  models.StringField()
+    c6 =  models.StringField()
     c7 =  models.IntegerField()
     c8 =  models.IntegerField()
     c9 =  models.IntegerField()

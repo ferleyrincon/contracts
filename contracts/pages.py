@@ -188,7 +188,38 @@ class Comparacion(Page):
 class config_screens(Page):
     pass
 
-class screen(Page):
+class screen1(Page):
+    timeout_seconds = 1
+
+class screen2(Page):
+    timeout_seconds = 1
+
+class screen3(Page):
+    timeout_seconds = 1
+    def vars_for_template(self):
+        index_config = int(self.player.n_contract)
+        cc = Constants.config_screens_c[index_config]
+        return {
+            "cc": cc
+        }
+
+class screen5(Page):
+    def vars_for_template(self):
+        index_config = int(self.player.n_contract)
+        cc = Constants.config_screens_c[index_config]
+        return {
+            "cc": cc
+        }
+
+class screen6(Page):
+    def vars_for_template(self):
+        index_config = int(self.player.n_contract)
+        cc = Constants.config_screens_c[index_config]
+        return {
+            "cc": cc
+        }
+
+class screen7(Page):
     def vars_for_template(self):
         index_config = int(self.player.n_contract)
         cc = Constants.config_screens_c[index_config]
@@ -199,7 +230,7 @@ class screen(Page):
     def before_next_page(self):
         self.player.n_contract += 1
 
-page_sequence = [config_screens, screen, screen, screen, screen, screen, c1]
+page_sequence = [screen1, screen2, screen3]
 
 preguntas = [
         c1,
@@ -220,8 +251,8 @@ preguntas = [
         c16
 ]
 
-# random.shuffle(preguntas)
-
 for p in preguntas:
     page_sequence.append(p)
+
+page_sequence += [screen5, screen6, screen7]
 

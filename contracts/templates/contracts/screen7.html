@@ -25,13 +25,6 @@
 
 {% block content %}
     <div class="div_body">
-        <div style="position: absolute; width: 58vw; height: 4vh; top: 23vh; left: 21vw; text-align: center; vertical-align: middle; color: #000000;">
-            ¿En qué color está escrita la siguiente palabra?
-        </div>
-        
-        <div style="position: absolute; width: 8vw; height: 4vh; top: 48vh; left: 46vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.word_color }};">
-            {{ cc.word }}
-        </div>
         
         {% if cc.left == 'w' %}
         <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.word_color }};">
