@@ -30,9 +30,9 @@ class Constants(BaseConstants):
     fixed_payoff = c(20000)
     contract_payoff = random.randint(1, num_rounds)
     use_timeout = True
-    #seconds_per_tasks1 = 1
-    #seconds_per_tasks2 = 10
-    #seconds_per_contract = 20
+    seconds_per_tasks1 = 1
+    seconds_per_tasks2 = 10
+    seconds_per_contract = 10
 
     contracts = {
     # "contract#" : [paymnet, insurance, bonus relative , alone ]    
