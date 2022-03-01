@@ -3,22 +3,20 @@
 
 {% block scripts %}
     <!-- custom style sheet-->
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles_imp.css' %}" rel="stylesheet">
     <script type="text/javascript">
         $(document).ready(function () {
             formulario = document.getElementById("form");
-            card_info = document.getElementsByClassName("debug-info")[0];
-
-            card_info.style.display = "none";
-
-
         });
 
-        function next_page(){
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
             formulario.submit();
         };
 
-        setTimeout(next_page, 1000);
+        // Para que la página haga una accion despues de 1.000 milisegundos
+        // esta acción es la que está en la función 'next_screen'
+        setTimeout(next_screen, 1000);
 
     </script>
 {% endblock %}
@@ -26,8 +24,8 @@
 {% block content %}
     <div class="div_body">
         
-        <div style="position: absolute; width: 8vw; height: 4vh; top: 48vh; left: 46vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.word_color }};">
-            {{ cc.word }}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 48vh; left: 46vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.word_color }};">
+            {{ config_screen.word }}
         </div>
         
     </div>

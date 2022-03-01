@@ -6,6 +6,11 @@ SESSION_CONFIGS = [
         display_name="contracts",
         num_demo_participants=1,
         app_sequence=['contracts']
+    ),dict(
+        name='comparison',
+        display_name="comparison",
+        num_demo_participants=1,
+        app_sequence=['comparison']
     ),
 ]
 

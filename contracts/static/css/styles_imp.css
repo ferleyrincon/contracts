@@ -1,0 +1,63 @@
+.otree-body {
+    width: 100vw !important;
+    height: 100vh !important;
+    margin-top: 0vh !important;
+    margin-left: 0vw !important;
+    margin-bottom: 0vh !important;
+    margin-right: 0vw !important;
+    padding-top: 0vh !important;
+    padding-left: 0vw !important;
+    padding-bottom: 0vh !important;
+    padding-right: 0vw !important;
+    top: 0vh !important;
+    left: 0vw !important;
+}
+
+.otree-title{
+    margin-top: 0vh !important;
+    margin-left: 0vw !important;
+    margin-bottom: 0vh !important;
+    margin-right: 0vw !important;
+    padding-top: 0vh !important;
+    padding-left: 0vw !important;
+    padding-bottom: 0vh !important;
+    padding-right: 0vw !important;
+    top: 0vh !important;
+    left: 0vw !important;
+    width: 0vw !important;
+    height: 0vh !important;
+}
+
+.otree-form{
+    margin-top: 0vh !important;
+    margin-left: 0vw !important;
+    margin-bottom: 0vh !important;
+    margin-right: 0vw !important;
+    padding-top: 0vh !important;
+    padding-left: 0vw !important;
+    padding-bottom: 0vh !important;
+    padding-right: 0vw !important;
+    top: 0vh !important;
+    left: 0vw !important;
+    width: 0vw !important;
+    height: 0vh !important;
+}
+
+._otree-content{
+    width: 100vw;
+    height: 100vh;
+    left: 0vw;
+    top: 0vh;
+}
+
+input{
+    display: none !important;
+}
+
+.debug-info{
+    width: 0vw !important;
+    height: 0vh !important;
+    top: 0vh !important;
+    left: 0vw !important;
+    display: none !important;
+}

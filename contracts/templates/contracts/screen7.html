@@ -3,22 +3,20 @@
 
 {% block scripts %}
     <!-- custom style sheet-->
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles_imp.css' %}" rel="stylesheet">
     <script type="text/javascript">
         $(document).ready(function () {
             formulario = document.getElementById("form");
-            card_info = document.getElementsByClassName("debug-info")[0];
-
-            card_info.style.display = "none";
-
-
         });
 
-        function next_page(){
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
             formulario.submit();
         };
 
-        //setTimeout(next_page, 5000);
+        // Para que la página haga una accion despues de 1.000 milisegundos
+        // esta acción es la que está en la función 'next_screen'
+        //setTimeout(next_screen, 1000);
 
     </script>
 {% endblock %}
@@ -26,23 +24,23 @@
 {% block content %}
     <div class="div_body">
         
-        {% if cc.left == 'w' %}
-        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.word_color }};">
-            {{ cc.opc1 }}
+        {% if config_screen.left == 'w' %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.word_color }};">
+            {{ config_screen.opc1 }}
         </div>
         {% else %}
-        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.color }};">
-            {{ cc.opc1 }}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.color }};">
+            {{ config_screen.opc1 }}
         </div>
         {% endif %}
         
-        {% if cc.left == 'w' %}
-        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.color }};">
-            {{ cc.opc2 }}
+        {% if config_screen.left == 'w' %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.color }};">
+            {{ config_screen.opc2 }}
         </div>
         {% else %}
-        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #d2d2d2; color: {{ cc.word_color }};">
-            {{ cc.opc2 }}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.word_color }};">
+            {{ config_screen.opc2 }}
         </div>
         {% endif %}
         

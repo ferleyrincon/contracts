@@ -45,11 +45,62 @@
         display: block;
         margin: 0 auto;
     }
+
+    .page-header{
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .counter-time{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: #000000;
+        background-color: #66ff66;
+        font-size: 1.2em;
+        border-radius: 20px;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+    }
 </style>
+
+<script type="text/javascript">
+var time = 0;
+
+function next_screen(){
+    formulario = document.getElementById("form");
+    formulario.submit();
+}
+
+function countdown(){
+    b_countdown = document.getElementById("countdown");
+    div_counter = document.getElementById("counter-time");
+    time += 1;
+    b_countdown.innerHTML = 10 - time;
+    if(time >= 6){
+        div_counter.style.backgroundColor = "#ffff66";
+    }
+    if(time >= 10){
+        div_counter.style.backgroundColor = "#ff6666";
+        next_screen();
+    }
+}
+
+setInterval(countdown, 1000);
+</script>
 {% endblock %}
 
 {% block content %}
 <div class="container">
+    <div class="counter-time" id="counter-time">
+        Tiempo restante para contestar: <b id="countdown">10</b> segundos
+    </div>
     <div class="row">
         <div class="col text-center">
             <h2 class="title">Contrato</h2>
@@ -61,33 +112,30 @@
         <div class="col">
             <h4>¿Qué tan dispuesto está a aceptar este contrato?</h4>
             <p>Por favor elija cualquier número entre 1 y 5 para indicar en que lugar de la escala se encuentra. Use
-                1, 2,
-                3, 4 ó 5.</p>
+                1, 2, 3, 4 ó 5.</p>
             <div class="d-flex">
                 <div class="cont-text-radio">
                     <p class="text-radio">Disposición</p>
                 </div>
                 <div class="custom-control-inline">
-                    <input type="radio" id="disposition1" name="c16" class="radio-inline">
+                    <input type="radio" id="disposition1" name="c16" class="radio-inline" value="1">
                     <label for="disposition1">1</label>
-
                 </div>
                 <div class="custom-control-inline">
-                    <input type="radio" id="disposition2" name="c16" class="radio-inline">
+                    <input type="radio" id="disposition2" name="c16" class="radio-inline" value="2">
                     <label for="disposition2">2</label>
                 </div>
                 <div class="custom-control-inline">
-                    <input type="radio" id="disposition3" name="c16" class="radio-inline">
+                    <input type="radio" id="disposition3" name="c16" class="radio-inline" value="3">
                     <label for="disposition3">3</label>
                 </div>
                 <div class="custom-control-inline">
-                    <input type="radio" id="disposition4" name="c16" class="radio-inline">
+                    <input type="radio" id="disposition4" name="c16" class="radio-inline" value="4">
                     <label for="disposition4">4</label>
                 </div>
                 <div class="custom-control-inline">
-                    <input type="radio" id="disposition5" name="c16" class="radio-inline">
+                    <input type="radio" id="disposition5" name="c16" class="radio-inline" value="5">
                     <label for="disposition5">5</label>
-
                 </div>
             </div>
         </div>

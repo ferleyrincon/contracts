@@ -5,6 +5,7 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+
 class consent(Page):
     form_model = 'player'
     form_fields = ['consent','consent_account']
@@ -12,9 +13,11 @@ class consent(Page):
     def is_displayed(self):
         return self.round_number == 1
 
+
 class Instrucciones(Page):
     def is_displayed(self):
         return self.round_number == 1
+
 
 class c1(Page):
     form_model = 'player'
@@ -26,10 +29,11 @@ class c1(Page):
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
 
+
 class c2(Page):
     form_model = 'player'
     form_fields = ['c2']
-    
+
     def is_displayed(self):
         return json.loads(self.participant.vars['orden_preguntas'])[self.round_number-1] == 2
 
@@ -47,6 +51,7 @@ class c3(Page):
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
 
+
 class c4(Page):
     form_model = 'player'
     form_fields = ['c4']
@@ -56,6 +61,7 @@ class c4(Page):
 
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
+
 
 class c5(Page):
     form_model = 'player'
@@ -67,6 +73,7 @@ class c5(Page):
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
 
+
 class c6(Page):
     form_model = 'player'
     form_fields = ['c6']
@@ -76,6 +83,7 @@ class c6(Page):
 
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
+
 
 class c7(Page):
     form_model = 'player'
@@ -87,6 +95,7 @@ class c7(Page):
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
 
+
 class c8(Page):
     form_model = 'player'
     form_fields = ['c8']
@@ -96,6 +105,7 @@ class c8(Page):
 
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
+
 
 class c9(Page):
     form_model = 'player'
@@ -107,6 +117,7 @@ class c9(Page):
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
 
+
 class c10(Page):
     form_model = 'player'
     form_fields = ['c10']
@@ -116,6 +127,7 @@ class c10(Page):
 
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
+
 
 class c11(Page):
     form_model = 'player'
@@ -127,6 +139,7 @@ class c11(Page):
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
 
+
 class c12(Page):
     form_model = 'player'
     form_fields = ['c12']
@@ -136,6 +149,7 @@ class c12(Page):
 
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
+
 
 class c13(Page):
     form_model = 'player'
@@ -147,6 +161,7 @@ class c13(Page):
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
 
+
 class c14(Page):
     form_model = 'player'
     form_fields = ['c14']
@@ -156,6 +171,7 @@ class c14(Page):
 
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
+
 
 class c15(Page):
     form_model = 'player'
@@ -167,6 +183,7 @@ class c15(Page):
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0]) 
 
+
 class c16(Page):
     form_model = 'player'
     form_fields = ['c16']
@@ -176,6 +193,7 @@ class c16(Page):
 
     def before_next_page(self):
         self.player.rellenar_campos(self.form_fields[0])
+
 
 class ResultsWaitPage(WaitPage):
     pass
@@ -188,47 +206,48 @@ class Comparacion(Page):
 class config_screens(Page):
     pass
 
+
 class screen1(Page):
-    timeout_seconds = 1
+    pass
+
 
 class screen2(Page):
-    timeout_seconds = 1
+    pass
+
 
 class screen3(Page):
-    timeout_seconds = 1
     def vars_for_template(self):
         index_config = int(self.player.n_contract)
-        cc = Constants.config_screens_c[index_config]
+        config_screen = Constants.config_screens_c[index_config]
         return {
-            "cc": cc
+            "config_screen": config_screen
         }
 
+
 class screen5(Page):
-    def vars_for_template(self):
-        index_config = int(self.player.n_contract)
-        cc = Constants.config_screens_c[index_config]
-        return {
-            "cc": cc
-        }
+    pass
+
 
 class screen6(Page):
     def vars_for_template(self):
         index_config = int(self.player.n_contract)
-        cc = Constants.config_screens_c[index_config]
+        config_screen = Constants.config_screens_c[index_config]
         return {
-            "cc": cc
+            "config_screen": config_screen
         }
+
 
 class screen7(Page):
     def vars_for_template(self):
         index_config = int(self.player.n_contract)
-        cc = Constants.config_screens_c[index_config]
+        config_screen = Constants.config_screens_c[index_config]
         return {
-            "cc": cc
+            "config_screen": config_screen
         }
 
     def before_next_page(self):
         self.player.n_contract += 1
+
 
 page_sequence = [screen1, screen2, screen3]
 
