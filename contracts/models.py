@@ -58,8 +58,8 @@ class Constants(BaseConstants):
     ## Configuracion para las pantallas
         # Unificacion de las configuraciones para las pantallas congruentes
     lst_colors =    [
-                        'blue',     # 0
-                        'red',      # 1
+                        '#0000ff',     # 0
+                        '#ff0000',      # 1
                         'yellow',   # 2
                         'green'     # 3
                     ]
@@ -176,7 +176,7 @@ class Constants(BaseConstants):
                             3,  # 21 -> 'green'
                             3,  # 22 -> 'green'
                             2,  # 23 -> 'yellow'
-                            3   # 24 -> 
+                            3   # 24 -> 'green'
                         ]
         # Configuracion de la palabra y color que va abajo a la derecha en las pantallas congruentes
     config_right_c =    [
