@@ -46,26 +46,14 @@ setInterval(countdown, 1000);
                 <div class="cont-text-radio">
                     <p class="text-radio">Disposición</p>
                 </div>
-                <div class="custom-control-inline">
-                    <input type="radio" id="disposition1" name="c11" class="radio-inline" value="1">
-                    <label for="disposition1">1</label>
-                </div>
-                <div class="custom-control-inline">
-                    <input type="radio" id="disposition2" name="c11" class="radio-inline" value="2">
-                    <label for="disposition2">2</label>
-                </div>
-                <div class="custom-control-inline">
-                    <input type="radio" id="disposition3" name="c11" class="radio-inline" value="3">
-                    <label for="disposition3">3</label>
-                </div>
-                <div class="custom-control-inline">
-                    <input type="radio" id="disposition4" name="c11" class="radio-inline" value="4">
-                    <label for="disposition4">4</label>
-                </div>
-                <div class="custom-control-inline">
-                    <input type="radio" id="disposition5" name="c11" class="radio-inline" value="5">
-                    <label for="disposition5">5</label>
-                </div>
+                {% for rb in form.c11 %}
+                    <div class="custom-control-inline">
+                        {{ rb }}
+                    </div>
+                {% endfor %}
+                    <input type="hidden" id="timeClick" name="t11" value="0">
+                    <input type="hidden" id="controlClick" name="adc11" value="[ ">
+                    <input type="hidden" id="arrayTime" name="atc11" value="[ ">
             </div>
         </div>
     </div>

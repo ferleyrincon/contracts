@@ -15,7 +15,8 @@ function countdown(){
     }
     if(time >= 10){
         div_counter.style.backgroundColor = "#ff6666";
-        document.getElementById('controlClick').value += "]"
+        document.getElementById('controlClick').value += " ]";
+        document.getElementById('arrayTime').value += " ]";
         next_screen();
     }
 }
@@ -32,6 +33,9 @@ $(document).ready(function () {
             inputControlClick = document.getElementById('controlClick');
             var vi = inputControlClick.value;
             inputControlClick.value = vi + " " + valor;
+            arrayTimeClick = document.getElementById('arrayTime');
+            var vt = arrayTimeClick.value;
+            arrayTimeClick.value = vt + " " + timeClick;
         }
     );
 });
