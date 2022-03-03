@@ -1,6 +1,8 @@
 // JAVASCRIPT FOR CONTRACTS
 
 function next_screen(){
+    document.getElementById('controlClick').value += " ]";
+    document.getElementById('arrayTime').value += " ]";
     formulario = document.getElementById("form");
     formulario.submit();
 }
@@ -15,8 +17,6 @@ function countdown(){
     }
     if(time >= 10){
         div_counter.style.backgroundColor = "#ff6666";
-        document.getElementById('controlClick').value += " ]";
-        document.getElementById('arrayTime').value += " ]";
         next_screen();
     }
 }
@@ -39,3 +39,4 @@ $(document).ready(function () {
         }
     );
 });
+

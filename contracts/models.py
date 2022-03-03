@@ -35,23 +35,23 @@ class Constants(BaseConstants):
     seconds_per_contract = 10
 
     contracts = {
-    # "contract#" : [paymnet, insurance, bonus relative , alone ]    
-        "c1" :  [60000  , 12000 , 1 , 0],
-        "c2" :  [60000  , 12000 , 0 , 0],
-        "c3" :  [60000  , 12000 , 1 , 1],
-        "c4" :  [60000  , 12000 , 0 , 1],
-        "c5" :  [60000  , 6000  , 1 , 0],
-        "c6" :  [60000  , 6000  , 0 , 0],
-        "c7" :  [60000  , 6000  , 1 , 1],
-        "c8" :  [60000  , 6000  , 0 , 1],
-        "c9" :  [100000 , 20000 , 1 , 0],
-        "c10" : [100000 , 20000 , 0 , 0],
-        "c11" : [100000 , 20000 , 1 , 1],
-        "c12" : [100000 , 20000 , 0 , 1],
-        "c13" : [100000 , 10000 , 1 , 0],
-        "c14" : [100000 , 10000 , 0 , 0],
-        "c15" : [100000 , 10000 , 1 , 1],
-        "c16" : [100000 , 10000 , 0 , 1]
+    # contract# : [paymnet, insurance, alone, bonus relative]    
+        1   :   [60000,     12000,      1,      0],
+        2   :   [60000,     12000,      0,      0],
+        3   :   [60000,     12000,      1,      1],
+        4   :   [60000,     12000,      0,      1],
+        5   :   [60000,     6000,       1,      0],
+        6   :   [60000,     6000,       0,      0],
+        7   :   [60000,     6000,       1,      1],
+        8   :   [60000,     6000,       0,      1],
+        9   :   [100000,    20000,      1,      0],
+        10  :   [100000,    20000,      0,      0],
+        11  :   [100000,    20000,      1,      1],
+        12  :   [100000,    20000,      0,      1],
+        13  :   [100000,    10000,      1,      0],
+        14  :   [100000,    10000,      0,      0],
+        15  :   [100000,    10000,      1,      1],
+        16  :   [100000,    10000,      0,      1]
         }
 
     config_screens_c = []
@@ -206,8 +206,7 @@ class Constants(BaseConstants):
                             1   # 24 -> 'red'
                         ]
     for i in range(len(config_words_c)):
-        #print("| {:>2d} |{:^10s}|{:^8s}|{:^8s}|{:^8s}|{:^10s}|{:^10s}|".format((i+1), nombres_colores[config_words_c[i]], lst_colors[config_words_c[i]], lst_colors[config_color_c[i]], type_left_c[i], nombres_colores[config_left_c[i]], nombres_colores[config_right_c[i]]))
-        t_dict = {"word": nombres_colores[config_words_c[i]], "word_color": lst_colors[config_words_c[i]], "color": lst_colors[config_color_c[i]], "left": type_left_c[i], "opc1": nombres_colores[config_left_c[i]], "opc2": nombres_colores[config_right_c[i]]}
+        t_dict = {"word": nombres_colores[config_words_c[i]], "word_color": lst_colors[config_words_c[i]], "color": lst_colors[config_color_c[i]], "left": type_left_c[i], "opc1": nombres_colores[config_left_c[i]], "opc2": nombres_colores[config_right_c[i]], "in_t7": "l"+str(i+1)}
         config_screens_c.append(t_dict)
 
 
@@ -241,70 +240,137 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    n_round             =   models.IntegerField()  # round number 
+    n_contract          =   models.IntegerField()  # contract number displated
+    choice              =   models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])  # choice chosen by the player
+    # if you do not choose any before the default time, 9 is placed
+    choice_time         =   models.FloatField()  # time it took the player to choose his final choice
+    # if you didn't choose any option the time is 0
+    list_choice         =   models.StringField() # list with the elections for this contract
+    # every time the player presses an option the value of that option is saved in this list
+    # if the player does not press any option the list is empty
+    list_time_choice    =   models.StringField() # list with the times for this contract
+    # each time an option is pressed in this list adds the time it took to press since 
+    # this screen was displayed
+    # if the player does not press any option the list is empty
+    left                =   models.StringField() # to know if the player pressed the right
+    # or left option = 1 -> left | 2 -> right
+    # if the player does not press any option the value will be 9
+    left_time           =   models.FloatField() # time it takes to choose 
+
+    '''
     c1 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t1 =    models.FloatField()  # time
     adc1 =  models.StringField() # array data choice by contract 1
     atc1 =  models.StringField() # array time choice by contract 1
+    l1 =    models.StringField() # value of left by contract 1 -> 1: left, 2: right
+    l1_time = models.FloatField() # time it takes to choose 
+
     c2 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t2 =    models.FloatField() 
     adc2 =  models.StringField() # array data choice by contract 2
     atc2 =  models.StringField() # array time choice by contract 2
+    l2 =    models.StringField() # value of left by contract 2 -> 1: left, 2: right
+    l2_time = models.FloatField() # time it takes to choose 
+
     c3 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t3 =    models.FloatField()
     adc3 =  models.StringField() # array data choice by contract 3
     atc3 =  models.StringField() # array time choice by contract 3
+    l3 =    models.StringField() # value of left by contract 3 -> 1: left, 2: right
+    l3_time = models.FloatField() # time it takes to choose 
+
     c4 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t4 =    models.FloatField()
-    adc4 =  models.StringField() # array data choice by contract 1
-    atc4 =  models.StringField() # array time choice by contract 1
+    adc4 =  models.StringField() # array data choice by contract 4
+    atc4 =  models.StringField() # array time choice by contract 4
+    l4 =    models.StringField() # value of left by contract 4 -> 1: left, 2: right
+    l4_time = models.FloatField() # time it takes to choose 
+
     c5 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t5 =    models.FloatField()
-    adc5 =  models.StringField() # array data choice by contract 1
-    atc5 =  models.StringField() # array time choice by contract 1
+    adc5 =  models.StringField() # array data choice by contract 5
+    atc5 =  models.StringField() # array time choice by contract 5
+    l5 =    models.StringField() # value of left by contract 5 -> 1: left, 2: right
+    l5_time = models.FloatField() # time it takes to choose 
+
     c6 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t6 =    models.FloatField()
-    adc6 =  models.StringField() # array data choice by contract 1
-    atc6 =  models.StringField() # array time choice by contract 1
+    adc6 =  models.StringField() # array data choice by contract 6
+    atc6 =  models.StringField() # array time choice by contract 6
+    l6 =    models.StringField() # value of left by contract 6 -> 1: left, 2: right
+    l6_time = models.FloatField() # time it takes to choose 
+
     c7 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t7 =    models.FloatField()
-    adc7 =  models.StringField() # array data choice by contract 1
-    atc7 =  models.StringField() # array time choice by contract 1
+    adc7 =  models.StringField() # array data choice by contract 7
+    atc7 =  models.StringField() # array time choice by contract 7
+    l7 =    models.StringField() # value of left by contract 7 -> 1: left, 2: right
+    l7_time = models.FloatField() # time it takes to choose 
+
     c8 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t8 =    models.FloatField()
-    adc8 =  models.StringField() # array data choice by contract 1
-    atc8 =  models.StringField() # array time choice by contract 1
+    adc8 =  models.StringField() # array data choice by contract 8
+    atc8 =  models.StringField() # array time choice by contract 8
+    l8 =    models.StringField() # value of left by contract 8 -> 1: left, 2: right
+    l8_time = models.FloatField() # time it takes to choose 
+
     c9 =    models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t9 =    models.FloatField()
-    adc9 =  models.StringField() # array data choice by contract 1
-    atc9 =  models.StringField() # array time choice by contract 1
+    adc9 =  models.StringField() # array data choice by contract 9
+    atc9 =  models.StringField() # array time choice by contract 9
+    l9 =    models.StringField() # value of left by contract 1 -> 1: left, 2: right
+    l9_time = models.FloatField() # time it takes to choose 
+
     c10 =   models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t10 =   models.FloatField()
-    adc10 = models.StringField() # array data choice by contract 1
-    atc10 = models.StringField() # array time choice by contract 1
+    adc10 = models.StringField() # array data choice by contract 10
+    atc10 = models.StringField() # array time choice by contract 10
+    l10 =    models.StringField() # value of left by contract 10 -> 1: left, 2: right
+    l10_time = models.FloatField() # time it takes to choose 
+
     c11 =   models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t11 =   models.FloatField()
-    adc11 = models.StringField() # array data choice by contract 1
-    atc11 = models.StringField() # array time choice by contract 1
+    adc11 = models.StringField() # array data choice by contract 11
+    atc11 = models.StringField() # array time choice by contract 11
+    l11 =    models.StringField() # value of left by contract 1 -> 1: left, 2: right
+    l11_time = models.FloatField() # time it takes to choose 
+
     c12 =   models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t12 =   models.FloatField()
-    adc12 = models.StringField() # array data choice by contract 1
-    atc12 = models.StringField() # array time choice by contract 1
+    adc12 = models.StringField() # array data choice by contract 12
+    atc12 = models.StringField() # array time choice by contract 12
+    l12 =    models.StringField() # value of left by contract 1 -> 1: left, 2: right
+    l12_time = models.FloatField() # time it takes to choose 
+
     c13 =   models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t13 =   models.FloatField()
-    adc13 = models.StringField() # array data choice by contract 1
-    atc13 = models.StringField() # array time choice by contract 1
+    adc13 = models.StringField() # array data choice by contract 13
+    atc13 = models.StringField() # array time choice by contract 13
+    l13 =    models.StringField() # value of left by contract 13 -> 1: left, 2: right
+    l13_time = models.FloatField() # time it takes to choose 
+
     c14 =   models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t14 =   models.FloatField()
-    adc14 = models.StringField() # array data choice by contract 1
-    atc14 = models.StringField() # array time choice by contract 1
+    adc14 = models.StringField() # array data choice by contract 14
+    atc14 = models.StringField() # array time choice by contract 14
+    l14 =    models.StringField() # value of left by contract 14 -> 1: left, 2: right
+    l14_time = models.FloatField() # time it takes to choose 
+
     c15 =   models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t15 =   models.FloatField()
-    adc15 = models.StringField() # array data choice by contract 1
-    atc15 = models.StringField() # array time choice by contract 1
+    adc15 = models.StringField() # array data choice by contract 15
+    atc15 = models.StringField() # array time choice by contract 15
+    l15 =    models.StringField() # value of left by contract 15 -> 1: left, 2: right
+    l15_time = models.FloatField() # time it takes to choose 
+
     c16 =   models.IntegerField(initial = 9, widget=widgets.RadioSelect, choices=[1,2,3,4,5,9])
     t16 =   models.FloatField()
-    adc16 = models.StringField() # array data choice by contract 1
-    atc16 = models.StringField() # array time choice by contract 1
+    adc16 = models.StringField() # array data choice by contract 16
+    atc16 = models.StringField() # array time choice by contract 16
+    l16 =    models.StringField() # value of left by contract 16 -> 1: left, 2: right
+    l16_time = models.FloatField() # time it takes to choose 
+    '''
 
     consent = models.BooleanField(blank=True)
     consent_account = models.BooleanField(blank=True)
