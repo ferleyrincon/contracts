@@ -26,7 +26,7 @@ class contracts(Page):
     def vars_for_template(self):
         number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number - 1])
         c_c = Constants.contracts.get(number_contract)
-        config_contract = {"number": number_contract, "paymnet": c_c[0], "insurance": c_c[1], "percentage": int(c_c[0]/c_c[1]), "alone": c_c[2], "bonus": c_c[3]}
+        config_contract = {"number": number_contract, "paymnet": c_c[0], "insurance": c_c[1], "percentage": int(c_c[0]/c_c[1]), "alone": c_c[2], "bonusrelative": c_c[3]}
         return {
             "config_contract": config_contract
         }

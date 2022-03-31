@@ -35,7 +35,7 @@ class Constants(BaseConstants):
     seconds_per_contract = 10
 
     contracts = {
-    # contract# : [paymnet, insurance, alone, bonus relative]    
+    # contract# : [paymnet, insurance, alone, bonus_relative]    
         1   :   [60000,     12000,      1,      0],
         2   :   [60000,     12000,      0,      0],
         3   :   [60000,     12000,      1,      1],
