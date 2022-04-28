@@ -33,12 +33,16 @@ setInterval(countdown, 1000);
     <div class="row">
         <div class="col text-center">
             <h2 class="title">Contrato</h2>
+
             <p class="text">Pago: ${{ config_contract.paymnet }}</p>
-            <p class="text">El seguro vale ${{ config_contract.insurance }} [{{ config_contract.percentage }}% pago]</p>
-            {% if config_contract.bonus == 0 %}
-                <p class="text">Bono para quienes hagan más tareas</p>
+
+            <p class="text">
+                El seguro vale ${{ config_contract.insurance }}, <br>
+                se deduce ese {{ config_contract.percentage }}% de su pago</p>
+            {% if config_contract.bonusrelative == 0 %}
+                <p class="text">Bono por cumplir meta de tareas.</p>
             {% else %}
-                <p class="text">Bono para quienes cumplan meta de tareas</p>
+                <p class="text">Bono por hacer más tareas que otros.</p>
             {% endif %}
 
             {% if config_contract.alone == 0 %}
