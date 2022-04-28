@@ -21,7 +21,8 @@ var dateClick = dateInit;
 
 $('label[for="id_choice_5"]').hide();
 
-setInterval(countdown, 1000);
+//setInterval(countdown, 10000));
+setTimeout(next_screen, ({{ seconds_per_contract }} * 1000));
 </script>
 {% endblock %}
 

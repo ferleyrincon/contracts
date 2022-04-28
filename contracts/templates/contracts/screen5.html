@@ -16,7 +16,7 @@
 
         // Para que la página haga una accion despues de 1.000 milisegundos
         // esta acción es la que está en la función 'next_screen'
-        setTimeout(next_screen, 1000);
+        setTimeout(next_screen, ({{ seconds_per_template }} * 1000));
 
     </script>
 {% endblock %}

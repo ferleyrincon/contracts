@@ -26,9 +26,10 @@ class contracts(Page):
     def vars_for_template(self):
         number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number - 1])
         c_c = Constants.contracts.get(number_contract)
-        config_contract = {"number": number_contract, "paymnet": c_c[0], "insurance": c_c[1], "percentage": int(c_c[0]/c_c[1]), "alone": c_c[2], "bonusrelative": c_c[3]}
+        config_contract = {"number": number_contract, "paymnet": c_c[0], "insurance": c_c[1], "percentage": int(100*c_c[1]/c_c[0]), "alone": c_c[2], "bonusrelative": c_c[3]}
         return {
-            "config_contract": config_contract
+            "config_contract": config_contract,
+            "seconds_per_contract": Constants.seconds_per_contract
         }
 
 
@@ -47,12 +48,16 @@ class config_screens(Page):
 class screen1(Page):
     def vars_for_template(self):
         return {
-            "congruent": self.participant.vars['congruent']
+            "congruent": self.participant.vars['congruent'],
+            "seconds_per_template": Constants.seconds_per_template
         }
 
 
 class screen2(Page):
-    pass
+    def vars_for_template(self):
+        return {
+            "seconds_per_template": Constants.seconds_per_template
+        }
 
 
 class screen3(Page):
@@ -61,12 +66,16 @@ class screen3(Page):
         config_screen = Constants.config_screens_c[index_config]
         return {
             "config_screen": config_screen,
-            "congruent": self.participant.vars['congruent']
+            "congruent": self.participant.vars['congruent'],
+            "seconds_per_template": Constants.seconds_per_template
         }
 
 
 class screen5(Page):
-    pass
+    def vars_for_template(self):
+        return {
+            "seconds_per_template": Constants.seconds_per_template
+        }
 
 
 class screen6(Page):
@@ -75,7 +84,8 @@ class screen6(Page):
         config_screen = Constants.config_screens_c[index_config]
         return {
             "config_screen": config_screen,
-            "congruent": self.participant.vars['congruent']
+            "congruent": self.participant.vars['congruent'],
+            "seconds_per_template": Constants.seconds_per_template
         }
 
 
@@ -87,7 +97,8 @@ class screen7(Page):
         index_config = int(self.subsession.round_number - 1)
         config_screen = Constants.config_screens_c[index_config]
         return {
-            "config_screen": config_screen
+            "config_screen": config_screen,
+            "seconds_per_contract": Constants.seconds_per_contract
         }
 
 
