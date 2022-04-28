@@ -45,7 +45,10 @@ class config_screens(Page):
 
 
 class screen1(Page):
-    pass
+    def vars_for_template(self):
+        return {
+            "congruent": self.participant.vars['congruent']
+        }
 
 
 class screen2(Page):
@@ -57,7 +60,8 @@ class screen3(Page):
         index_config = int(self.subsession.round_number - 1)
         config_screen = Constants.config_screens_c[index_config]
         return {
-            "config_screen": config_screen
+            "config_screen": config_screen,
+            "congruent": self.participant.vars['congruent']
         }
 
 
@@ -70,7 +74,8 @@ class screen6(Page):
         index_config = int(self.subsession.round_number - 1)
         config_screen = Constants.config_screens_c[index_config]
         return {
-            "config_screen": config_screen
+            "config_screen": config_screen,
+            "congruent": self.participant.vars['congruent']
         }
 
 

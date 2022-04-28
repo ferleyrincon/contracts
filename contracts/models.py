@@ -212,6 +212,10 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
+        # Para el random del congruente
+        for j in self.get_players():
+            j.get_congruent()
+
         if self.round_number == 1:
             for p in self.get_players():
                #p.contract_pago = random.randint(1,4)
@@ -265,9 +269,16 @@ class Player(BasePlayer):
     contract_pago = models.IntegerField()
     #pago = models.CurrencyField(initial=0)
 
+    congruent = models.BooleanField() # Saber si es tratamiento congruente o no congruente el jugador
+
     def rellenar_campos(self, campo):
         for i in range(1, Constants.num_rounds+1):
             setattr(self.in_round(i), campo, getattr(self, campo))
+
+    def get_congruent(self):
+        self.congruent = random.choice([True, False])
+        self.participant.vars['congruent'] = self.congruent
+        return self.congruent
 
 #    tasks
 
