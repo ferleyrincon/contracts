@@ -1,4 +1,5 @@
 from os import environ
+import os
 
 SESSION_CONFIGS = [
     dict(
@@ -25,10 +26,10 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'es'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = 'COP'
 USE_POINTS = True
 
 ADMIN_USERNAME = 'admin'
