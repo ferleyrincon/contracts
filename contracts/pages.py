@@ -102,5 +102,5 @@ class screen7(Page):
         }
 
 
-page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7]
+page_sequence = [screen3, screen6]
 
