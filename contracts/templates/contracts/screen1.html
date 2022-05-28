@@ -25,7 +25,11 @@
     <div class="div_body">
         
         <div style="position: absolute; width: 8vw; height: 4vh; top: 48vh; left: 46vw; text-align: center; vertical-align: middle; background-color: #ffffff; color: #000000;">
-            Contrato # {{ subsession.round_number }}
+            {% if round < 1 %}
+                Práctica # {{ subsession.round_number }}
+            {% else %}
+                Contrato # {{ round }}
+            {% endif %} 
         </div>
         
     </div>

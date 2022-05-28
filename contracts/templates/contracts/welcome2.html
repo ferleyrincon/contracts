@@ -1,0 +1,45 @@
+{% extends "global/Page.html" %} {% load otree static %} 
+
+{% block content %}
+    <h5>Calificación de contratos</h5>
+
+    <p> Piense que usted trabaja por días, y los contratos pueden ser diferentes cada día de trabajo. 
+        Le presentaremos 16 contratos. Debe calificar cada <i>contrato</i> en una escala del 1 a 5.</p> 
+
+    <p>Recuerde que los contratos varían en el pago por día, 
+        el descuento para pagar el seguro, 
+        la regla para la asignación del bono, 
+        y si el trabajo se hará sólo o en parejas.</p>
+    
+    <h5>Comparación de contratos</h5>
+
+    <p> En algunas pantallas, le podrán aparecer dos contratos al tiempo. 
+        En este caso la tarea es diferente, pues deberá elegir el contrato que usted estaría más dispuesto a aceptar. </p> 
+
+    <h5>Pagos de la actividad</h5>
+
+    <p>
+        Si usted es seleccionado para venir a la actividad adicional en Julio, 
+        usted recibirá el pago por participar en la actividad adicional cuando termine las tareas asignadas para ese día.
+    </p>
+
+    <p>Adicionalmente, hay dos pagos que podrá recibir por la actividad de hoy:</p>
+    
+    <ul>
+        <li>$15.000 por completar esta actividad y responder la encuesta final.
+        <li>Bono de $16.000 si su nivel de atención es alto: <br>
+            Antes de cada pantalla con contratos, usted verá una <b>palabra</b>. 
+            Luego de calificar los contratos se le preguntará en qué color está escrita la <b>palabra</b>. 
+            Si usted califica TODOS los contratos y responde correctamente al menos 12 de las 20 preguntas sobre el color de las palabras, usted recibe una bonificación de $16.000.</li>
+    </ul> 
+
+    <h5>¿Preguntas?</h5>
+    <p> Por favor, levante la mano si necesita ayuda. Uno de los monitores tratará de ayudarlo de manera individual. </p> 
+    
+    <p><b>
+        {% formfields %}
+    </b></p>
+
+    <p> Haga <I>clic</I> en "Siguiente" para comenzar.</p>
+    {% next_button %} 
+    {% endblock %}

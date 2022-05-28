@@ -13,20 +13,54 @@ class consent(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-
-class Instrucciones(Page):
+class welcome1(Page):
     def is_displayed(self):
         return self.round_number == 1
+
+class welcome2(Page):
+    form_model = 'player'
+    form_fields = ['identificador']
+
+    def is_displayed(self):
+        return self.round_number == 1
+
+class instructions_task(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+    
+    def vars_for_template(self):
+        return {
+            "congruent": self.participant.vars['congruent'],
+        }
+
+class practice_answer(Page):
+    def is_displayed(self):
+        return self.round_number < 4
+    def vars_for_template(self): 
+        return {
+            "p_practice" : self.participant.vars['p_practice'],
+        }
+
+class instructions_contracts(Page):
+    def is_displayed(self):
+        return self.round_number == 4
+
+class instructions_pairs(Page):
+    def is_displayed(self):
+        return self.round_number == 20
 
 
 class contracts(Page):
     form_model = 'player'
     form_fields = ['n_round', 'n_contract', 'choice', 'choice_time', 'list_choice', 'list_time_choice']
 
+    def is_displayed(self):
+        return self.round_number > 4
+
     def vars_for_template(self):
-        number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number - 1])
-        c_c = Constants.contracts.get(number_contract)
-        config_contract = {"number": number_contract, "paymnet": c_c[0], "insurance": c_c[1], "percentage": int(100*c_c[1]/c_c[0]), "alone": c_c[2], "bonusrelative": c_c[3]}
+        number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number - 4])
+        c = Constants.contracts.get(number_contract)
+        config_contract = {"number": number_contract, "paymnet": c[0], "insurance": c[1], "percentage": int(100*c[1]/c[0]), "alone": c[2], "bonusrelative": c[3]}
         return {
             "config_contract": config_contract,
             "seconds_per_contract": Constants.seconds_per_contract
@@ -49,7 +83,8 @@ class screen1(Page):
     def vars_for_template(self):
         return {
             "congruent": self.participant.vars['congruent'],
-            "seconds_per_template": Constants.seconds_per_template
+            "seconds_per_template": Constants.seconds_per_template,
+            "round": self.subsession.round_number - 4
         }
 
 
@@ -63,7 +98,7 @@ class screen2(Page):
 class screen3(Page):
     def vars_for_template(self):
         index_config = int(self.subsession.round_number - 1)
-        config_screen = Constants.config_screens_c[index_config]
+        config_screen = Constants.config_screens[index_config]
         return {
             "config_screen": config_screen,
             "congruent": self.participant.vars['congruent'],
@@ -72,6 +107,9 @@ class screen3(Page):
 
 
 class screen5(Page):
+    def is_displayed(self):
+        return self.round_number > 4
+
     def vars_for_template(self):
         return {
             "seconds_per_template": Constants.seconds_per_template
@@ -81,7 +119,7 @@ class screen5(Page):
 class screen6(Page):
     def vars_for_template(self):
         index_config = int(self.subsession.round_number - 1)
-        config_screen = Constants.config_screens_c[index_config]
+        config_screen = Constants.config_screens[index_config]
         return {
             "config_screen": config_screen,
             "congruent": self.participant.vars['congruent'],
@@ -95,12 +133,12 @@ class screen7(Page):
 
     def vars_for_template(self):
         index_config = int(self.subsession.round_number - 1)
-        config_screen = Constants.config_screens_c[index_config]
+        config_screen = Constants.config_screens[index_config]
         return {
             "config_screen": config_screen,
             "seconds_per_contract": Constants.seconds_per_contract
         }
 
 
-page_sequence = [screen3, screen6]
+page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, practice_answer]
 

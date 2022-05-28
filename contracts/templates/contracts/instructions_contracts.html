@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+<style type="text/css">
+#id_c4_5{
+    display: none;
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<link href="{% static 'css/contracts.css' %}" rel="stylesheet">
+
+<script src="{% static 'js/contracts.js' %}"></script>
+
+<script type="text/javascript">
+var time = 0;
+var dateInit = Date.now();
+var dateClick = dateInit;
+
+$('label[for="id_choice_5"]').hide();
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="counter-time" id="counter-time">
+        Tiempo restante para contestar: <b id="countdown">10</b> segundos
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h2 class="title">Estructura Contrato</h2>
+
+            <p class="text">
+                <b>Pago</b> por participar en la Tarea <br>
+                (actividad de implementación)</p>
+            <p class="text">
+                El valor del <b>Seguro</b>,<br> 
+                se deduce un porcentaje de su pago</p>
+            <p class="text">
+                La regla para la asignación un <br> 
+                <b>Bono</b> de desempeño por $16.000</p>
+            <p class="text">
+                Si es un Trabajo Individual o en Parejas</p>
+        </div>
+        <div class="col">
+            <h4>¿Qué tan dispuesto está a aceptar este contrato?</h4>
+            <p>Usted tendrá 10 segundos para calificar cada contrato en una escala entre 1 y 5. 
+                <ul>
+                    <li>Calificar un contrato con <b>1</b> significa que “no le gustaría para nada tener este contrato”
+                    <li>Calificar un contrato con <b>5</b> significa que “le gustaría mucho tener este contrato”. </li>
+                </ul>         
+            Puede usar 1, 2, 3, 4 ó 5 para indicar en que lugar de la escala se encuentra.
+            </p>
+            <p>En esta pregunta no hay respuestas correctas o incorrectas. Usted es libre de dar la calificación que prefiera</p>
+        <h6>Recuerde:</h6>
+        <p> La Tarea dura 6 horas y se realiza en un salón de la Universidad del Rosario e implica trabajos principalmente manuales. <br>
+            El Seguro consiste en una compensación de $11.000 para quienes sean seleccionados para hacer la tarea, y por fuerza mayor no puedan asistir. 
+        </p>         
+        </div>
+
+    </div>
+</div>
+{% next_button %}
+
+{% endblock %}

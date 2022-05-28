@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+{% load static %}
+
+{% block title %} Preguntas sobre color de las palabras{% endblock %} 
+
+{% block content %}
+    <p>Usted verá una palabra y debe recordar en qué color está escrita: rojo, azul, amarillo o verde.</p>
+
+    <p>Luego de calificar o escoger un contrato, 
+        deberá seleccionar entre las opciones de respuesta el color en el que la palabra estaba escrita, 
+        sin importar lo que la palabra signifique. </p>
+     
+    <h5>Secuencia</h5>
+    <ol>
+        <li>La palabra aparecerá por <b>2</b> segundos, durante el cual debe identificar el color en el que está escrita.</li>
+        {% if congruent %}
+        <p class="aligncenter" >
+            <img src = "{% static 'preguntaA.jpg' %}" width="700px" title="Pregunta"/>
+            </p>  
+        {% else %}
+        <p class="aligncenter" >
+            <img src = "{% static 'preguntaB.jpg' %}" width="700px" title="Pregunta"/>
+            </p>  
+        {% endif %}
+
+        <li>Luego evaluará un contrato.</li>
+        <li>Finalmente, tendrá <b>0.1</b> segundos para volver a ver la pregunta y luego podrá seleccionar la respuesta correcta. </li>
+        <p class="aligncenter" >
+            <img src = "{% static 'respuesta.jpg' %}" width="700px" title="Respuesta"/>
+            </p> 
+      </ol>
+
+    <p>  En el ejemplo de arriba, la respuesta correcta es <span style="color: #ff0000;">Rojo</span> porque la palabra está escrita en color rojo, 
+    aunque la palabra diga         
+    {% if congruent %}
+        Rojo
+    {% else %}
+        Azul
+    {% endif %}. <br>
+    <b>Sea cuidadoso, el significado de la palabra no debe importar para su decisión</b>. 
+    </p>
+    <p>
+        Las siguientes <b>4</b> preguntas son de práctica, y son similares a las que deberá realizar en las siguientes rondas. 
+        Por esto es importante que practique y trate de seleccionar la respuesta correcta. 
+    </p>
+
+{% next_button %}
+
+{% endblock %}

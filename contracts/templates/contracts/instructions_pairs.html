@@ -1,0 +1,63 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+<style type="text/css">
+    .text {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .custom-control-inline {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 15px;
+        margin: auto;
+    }
+
+    .container-input {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .radio-inline {
+        position: absolute !important;
+        left: 50%;
+        transform: translateX(-54%) !important;
+        margin: 0 auto !important;
+        bottom: 5px !important;
+    }
+
+    .cont-text-radio {
+        margin-right: 12%;
+    }
+
+    .text-radio {
+        padding-top: 30px;
+        margin: 0;
+    }
+
+    .otree-body {
+        max-width: 100% !important;
+    }
+
+    .otree-btn-next {
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mb-5">
+        <div class="col text-center">
+            <h2 class="title">¿Cual <i>Contrato</i> usted prefiere?:</h2>
+            <div class="container">
+                <p>En las siguientes pantallas le aparecerán dos contratos. En este caso, Usted debe escoger el que prefiere. Debe marcar “←” si prefiere el contrato a la Izquierda y “→” cuando su contrato preferido este a la Derecha. </p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
