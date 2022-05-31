@@ -33,6 +33,7 @@ class Constants(BaseConstants):
     seconds_per_template3 = 0.1
     seconds_per_template7 = 0.1
     seconds_per_contract = 20
+    num_contracts = 16
 
     contracts = {
     # contract# : [paymnet, insurance, bonus_relative, groups]    
@@ -208,7 +209,7 @@ class Constants(BaseConstants):
                             1, #24 -> red
                         ]
     for i in range(len(config_word)):
-        t_dict = {"word": nombres_colores[config_word[i]], "word_color": lst_colors[config_word[i]], "color": lst_colors[config_color[i]], "left": type_left[i], "opc1": nombres_colores[config_left[i]], "opc2": nombres_colores[config_right[i]], "in_t7": "l"+str(i+1)}
+        t_dict = {"word": nombres_colores[config_word[i]], "word2": nombres_colores[config_color[i]], "word_color": lst_colors[config_word[i]], "color": lst_colors[config_color[i]], "left": type_left[i], "opc1": nombres_colores[config_left[i]], "opc2": nombres_colores[config_right[i]], "in_t7": "l"+str(i+1)}
         config_screens.append(t_dict)
 
 
@@ -221,7 +222,7 @@ class Subsession(BaseSubsession):
         if self.round_number == 1:
             for p in self.get_players():
                #p.contract_pago = random.randint(1,4)
-                p.participant.vars['orden_preguntas'] = json.dumps((np.random.choice(Constants.num_rounds, Constants.num_rounds, replace=False) + 1).tolist())
+                p.participant.vars['orden_preguntas'] = json.dumps((np.random.choice(Constants.num_contracts, Constants.num_contracts, replace=False) + 1).tolist())
         #else:
             #for p in self.get_players():
                 #p.contract_pago = p.in_round(1).pregunta_pago

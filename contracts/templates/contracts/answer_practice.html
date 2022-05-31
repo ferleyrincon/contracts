@@ -46,6 +46,21 @@
         margin: 0 auto;
     }
 </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
+
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            formulario.submit();
+        };
+
+        // Para que la página haga una accion despues de 1.000 milisegundos
+        // esta acción es la que está en la función 'next_screen'
+        setTimeout(next_screen, ({{ seconds_per_template }} * 1000));
+
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -54,8 +69,19 @@
         <div class="col text-center">
             <h2 class="title">Respuesta</h2>
             <div class="container">
-                <p>La respuesta correcta es:  </p>
-
+                <p>La respuesta correcta es:  </p><br>
+                <div style="text-align: center; padding: 0 auto;">
+                {% if congruent %}
+                <div style="position: sticky; width: 8vw; height: 4vh; top: 48vh; left: 46vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.word_color }};">
+                    {{ config_screen.word }}
+                </div>
+                {% else %}
+                <div style="position: sticky; width: 8vw; height: 4vh; top: 48vh; left: 46vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.color }};">
+                    {{ config_screen.word2 }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
         </div>
     </div>
 </div>

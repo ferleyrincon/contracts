@@ -33,12 +33,16 @@ class instructions_task(Page):
             "congruent": self.participant.vars['congruent'],
         }
 
-class practice_answer(Page):
+class answer_practice(Page):
     def is_displayed(self):
-        return self.round_number < 4
-    def vars_for_template(self): 
+        return self.round_number <= 4
+    def vars_for_template(self):
+        index_config = int(self.subsession.round_number - 1)
+        config_screen = Constants.config_screens[index_config]
         return {
-            "p_practice" : self.participant.vars['p_practice'],
+            "config_screen": config_screen,
+            "congruent": self.participant.vars['congruent'],
+            "seconds_per_template": Constants.seconds_per_template
         }
 
 class instructions_contracts(Page):
@@ -58,9 +62,9 @@ class contracts(Page):
         return self.round_number > 4
 
     def vars_for_template(self):
-        number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number - 4])
+        number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number])
         c = Constants.contracts.get(number_contract)
-        config_contract = {"number": number_contract, "paymnet": c[0], "insurance": c[1], "percentage": int(100*c[1]/c[0]), "alone": c[2], "bonusrelative": c[3]}
+        config_contract = {"number": number_contract, "payment": c[0], "insurance": c[1], "percentage": int(100*c[1]/c[0]), "alone": c[2], "bonusrelative": c[3]}
         return {
             "config_contract": config_contract,
             "seconds_per_contract": Constants.seconds_per_contract
@@ -140,5 +144,6 @@ class screen7(Page):
         }
 
 
-page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, practice_answer]
+#page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
+page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
