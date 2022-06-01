@@ -30,9 +30,9 @@ class Constants(BaseConstants):
     fixed_payoff = c(10000)
     use_timeout = True
     seconds_per_template = 1
-    seconds_per_template3 = 0.1
-    seconds_per_template7 = 0.1
-    seconds_per_contract = 20
+    seconds_per_color1 = 2
+    seconds_per_color2 = 0.1
+    seconds_per_choice = 10
     num_contracts = 16
 
     contracts = {

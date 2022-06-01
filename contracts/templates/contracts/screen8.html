@@ -1,0 +1,83 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/styles_imp.css' %}" rel="stylesheet">
+    <script type="text/javascript">
+
+        var dateInit = Date.now();
+
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
+
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            formulario.submit();
+        };
+
+        $(document).ready(function () {
+            $('.box_option').click(
+                function (evt) {
+                    dateClick = Date.now();
+                    var timeClick = (dateClick - dateInit)/1000;
+                    inputTimeClick = document.getElementById('left_time');
+                    inputTimeClick.value = timeClick;
+
+                    var clicked = evt.target;
+                    var boxID = clicked.id;
+                    inputLeft = document.getElementById('left_choice');
+                    if(boxID == 'left'){
+                        inputLeft.value = '1';
+                    }
+                    if(boxID == 'right'){
+                        inputLeft.value = '2';
+                    }
+
+                    next_screen();
+                }
+            );
+        });
+
+        // Para que la página haga una accion despues de 1.000 milisegundos
+        // esta acción es la que está en la función 'next_screen'
+        setTimeout(next_screen, ({{ time }} * 1000));
+
+    </script>
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="div_body">
+        
+        {% if config_screen.left == 'w' %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.word_color }};" class="box_option" id="left">
+            {{ config_screen.opc1 }}
+        </div>
+        {% else %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.color }};" class="box_option" id="left">
+            {{ config_screen.opc1 }}
+        </div>
+        {% endif %}
+        
+        {% if config_screen.left == 'w' %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.color }};" class="box_option" id="right">
+            {{ config_screen.opc2 }}
+        </div>
+        {% else %}
+        <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.word_color }};" class="box_option" id="right">
+            {{ config_screen.opc2 }}
+        </div>
+        {% endif %}
+
+        <input type="hidden" id="left_choice" name="left" value="9">
+        <input type="hidden" id="left_time" name="left_time" value="0">
+
+    </div>
+
+
+    {% endblock %}
+
