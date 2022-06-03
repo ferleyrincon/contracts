@@ -148,8 +148,8 @@ class screen7(Page):
     def before_next_page(self):
             self.player.set_pago()
 
-#page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
+page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
-page_sequence = [screen7]
+#page_sequence = [screen7]
