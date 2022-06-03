@@ -61,3 +61,11 @@ input{
     left: 0vw !important;
     display: none !important;
 }
+
+.radio_option {
+    display: block !important;
+    position: absolute;
+    width: 20%;
+    left: 40%;
+    top: -40px;
+}

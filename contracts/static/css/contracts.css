@@ -13,7 +13,8 @@
     position: relative;
     display: inline-block;
     padding-bottom: 15px;
-    margin-right: 15%;
+    margin-right: 9%;
+    margin-left: 9%;
 }
 
 .form-check-input {
@@ -68,4 +69,49 @@
 
 label{
     transform: translateY(200%);
+}
+
+.table_contract {
+    width: 100%;
+}
+
+.cell_left {
+    text-align: center !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 40%;
+}
+
+.cell_center {
+    width: 20%;
+}
+
+.cell_right {
+    text-align: center !important;
+    padding-left: 10px;
+    padding-right: 10px;-
+}
+
+.cell_top {
+    vertical-align: top;
+}
+
+.cell_top {
+    height: 40%;
+}
+
+.cell_bottom {
+    margin-bottom: 80px;
+    margin-top: 80px;
+    display: block;
+    text-align: center;
+}
+
+.cell_mid {
+    height: 275px;
+}
+
+.cell_br {
+    width: 100%;
+    display: block;
 }

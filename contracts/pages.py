@@ -62,9 +62,11 @@ class contracts(Page):
         return self.round_number > 4
 
     def vars_for_template(self):
-        number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number])
+        print("orden preguntas", self.participant.vars['orden_preguntas'])
+        print("numero de ronda", self.subsession.round_number)
+        number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number-5])
         c = Constants.contracts.get(number_contract)
-        config_contract = {"number": number_contract, "payment": c[0], "insurance": c[1], "percentage": int(100*c[1]/c[0]), "alone": c[2], "bonusrelative": c[3]}
+        config_contract = {"number": number_contract, "payment": f'{c[0]:,}', "insurance": f'{c[1]:,}', "percentage": int(100*c[1]/c[0]), "alone": c[2], "bonusrelative": c[3]}
         return {
             "config_contract": config_contract,
             "time": Constants.seconds_per_choice
@@ -146,6 +148,8 @@ class screen7(Page):
     def before_next_page(self):
             self.player.set_pago()
 
-page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
+#page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
+
+page_sequence = [screen7]
