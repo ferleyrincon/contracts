@@ -42,7 +42,7 @@ class answer_practice(Page):
         return {
             "config_screen": config_screen,
             "congruent": self.participant.vars['congruent'],
-            "time": Constants.seconds_per_color1
+            "time": Constants.seconds_per_choice
         }
 
 class instructions_contracts(Page):
@@ -54,20 +54,7 @@ class instructions_pairs(Page):
         return self.round_number == 20
 
 
-class contracts1(Page):
-    def is_displayed(self):
-        return self.round_number > 4
-
-    def vars_for_template(self):
-        number_contract = int(self.participant.vars['orden_preguntas'][1:-1].split(', ')[self.subsession.round_number])
-        c = Constants.contracts.get(number_contract)
-        config_contract = {"number": number_contract, "payment": c[0], "insurance": c[1], "percentage": int(100*c[1]/c[0]), "alone": c[2], "bonusrelative": c[3]}
-        return {
-            "config_contract": config_contract,
-            "time": Constants.seconds_per_choice
-        }
-
-class contracts2(Page):
+class contracts(Page):
     form_model = 'player'
     form_fields = ['n_round', 'n_contract', 'choice', 'choice_time', 'list_choice', 'list_time_choice']
 
@@ -119,11 +106,11 @@ class screen3(Page):
         return {
             "config_screen": config_screen,
             "congruent": self.participant.vars['congruent'],
-            "time": Constants.seconds_per_color1
+            "time": Constants.seconds_per_color
         }
 
 
-class screen6(Page):
+class screen5(Page):
     def is_displayed(self):
         return self.round_number > 4
 
@@ -133,18 +120,18 @@ class screen6(Page):
         }
 
 
-class screen7(Page):
+class screen6(Page):
     def vars_for_template(self):
         index_config = int(self.subsession.round_number - 1)
         config_screen = Constants.config_screens[index_config]
         return {
             "config_screen": config_screen,
             "congruent": self.participant.vars['congruent'],
-            "time": Constants.seconds_per_color2
+            "time": Constants.seconds_per_template
         }
 
 
-class screen8(Page):
+class screen7(Page):
     form_model = 'player'
     form_fields = ['left', 'left_time']
 
@@ -156,7 +143,9 @@ class screen8(Page):
             "time": Constants.seconds_per_choice
         }
 
+    def before_next_page(self):
+            self.player.set_pago()
 
-page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts1, contracts2, screen6, screen7, screen8, answer_practice]
+page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]

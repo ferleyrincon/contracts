@@ -28,10 +28,10 @@ class Constants(BaseConstants):
     num_rounds = 24
     likelihood_activity2= 0.1
     fixed_payoff = c(10000)
+    variable_payoff = c(20000)
     use_timeout = True
     seconds_per_template = 1
-    seconds_per_color1 = 2
-    seconds_per_color2 = 0.1
+    seconds_per_color = 2
     seconds_per_choice = 10
     num_contracts = 16
 
@@ -208,6 +208,62 @@ class Constants(BaseConstants):
                             2, #23 -> yellow
                             1, #24 -> red
                         ]
+    
+    # Configuracion las respuestas congruentes
+    answers_c =     [
+                            1, #1 -> True
+                            2, #2 -> False
+                            2, #3 -> False
+                            1, #4 -> True
+                            1, #5 -> True
+                            2, #6 -> False
+                            2, #7 -> False
+                            1, #8 -> True
+                            2, #9 -> False
+                            2, #10 -> False
+                            2, #11 -> False
+                            1, #12 -> True
+                            1, #13 -> True
+                            2, #14 -> False
+                            2, #15 -> False
+                            2, #16 -> False
+                            1, #17 -> True
+                            2, #18 -> False
+                            2, #19 -> False
+                            2, #20 -> False
+                            1, #21 -> True
+                            1, #22 -> True
+                            1, #23 -> True
+                            1, #24 -> True
+                        ]
+    # Configuracion las respuestas INcongruentes
+    answers_i =     [
+                            2, #1 -> False
+                            1, #2 -> True
+                            1, #3 -> True
+                            2, #4 -> False
+                            2, #5 -> False
+                            1, #6 -> True
+                            1, #7 -> True
+                            2, #8 -> False
+                            1, #9 -> True
+                            1, #10 -> True
+                            1, #11 -> True
+                            2, #12 -> False
+                            2, #13 -> False
+                            1, #14 -> True
+                            1, #15 -> True
+                            1, #16 -> True
+                            2, #17 -> False
+                            1, #18 -> True
+                            1, #19 -> True
+                            1, #20 -> True
+                            2, #21 -> False
+                            2, #22 -> False
+                            2, #23 -> False
+                            2, #24 -> False
+                        ]
+
     for i in range(len(config_word)):
         t_dict = {"word": nombres_colores[config_word[i]], "word2": nombres_colores[config_color[i]], "word_color": lst_colors[config_word[i]], "color": lst_colors[config_color[i]], "left": type_left[i], "opc1": nombres_colores[config_left[i]], "opc2": nombres_colores[config_right[i]], "in_t7": "l"+str(i+1)}
         config_screens.append(t_dict)
@@ -227,21 +283,6 @@ class Subsession(BaseSubsession):
             #for p in self.get_players():
                 #p.contract_pago = p.in_round(1).pregunta_pago
     
-    #def set_pago_jugadores(self):
-    #    for j in self.get_players():
-    #        j.set_pago()
-
-    #def set_rank_contracts(self):
-    #    rank_contracts = {}
-    #    for k,j in enumerate(self.get_players()):
-    #        rank_contracts['j' + str(k+1)] = j.append("c" + str(k))
-    #    self.rank_contracts = json.dumps(self.sort(rank_contracts))
-
-    #def set_contract_payoff(self):
-    #    rank_contracts = json.loads(self.rank_contracts)
-    #    self.position_ranking = rank_contracts[self.subsession.contract_payoff]    
-
-
 class Group(BaseGroup): 
     pass
 
@@ -264,6 +305,7 @@ class Player(BasePlayer):
     # or left option = 1 -> left | 2 -> right
     # if the player does not press any option the value will be 9
     left_time           =   models.FloatField() # time it takes to choose 
+    pago = models.CurrencyField()
 
     consent = models.BooleanField(blank=True)
     consent_account = models.BooleanField(blank=True)
@@ -281,3 +323,26 @@ class Player(BasePlayer):
         self.congruent = random.choice([True, False])
         self.participant.vars['congruent'] = self.congruent
         return self.congruent
+
+    def set_pago(self):
+        if (self.round_number==Constants.num_rounds):
+            answer_tasks = []
+            for j in self.in_all_rounds():
+                answer_tasks.append(j.left)
+            for k in range (5,24):
+                if self.participant.vars['congruent'] == True:
+                    if answer_tasks[k] == Constants.answers_c[k]:
+                        self.participant.vars['points'] = self.participant.vars['points']+1
+                else:
+                    if answer_tasks[k] == Constants.answers_i[k]:
+                        self.participant.vars['points'] = self.participant.vars['points']+1
+            if self.participant.vars['points']==16:
+                self.pago= Constants.fixed_payoff + Constants.variable_payoff
+            else:
+                self.pago= Constants.fixed_payoff
+        else:
+            self.pago= 0
+
+
+
+

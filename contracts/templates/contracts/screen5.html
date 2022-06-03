@@ -24,15 +24,19 @@
 {% block content %}
     <div class="div_body">
         
-        <div style="position: absolute; width: 8vw; height: 4vh; top: 48vh; left: 46vw; text-align: center; vertical-align: middle; background-color: #ffffff; color: #000000;">
-            {% if round < 1 %}
-                Práctica # {{ subsession.round_number }}
-            {% else %}
-                Contrato # {{ round }}
-            {% endif %} 
+        <div style="position: absolute; width: 4vw; height: 8vh; top: 46vh; left: 48vw;">
+            <table>
+                <tr>
+                    <td style="width: 2vw; height: 4vh; border-right: 1px solid #000000; border-bottom: 1px solid #000000;"></td>
+                    <td style="width: 2vw; height: 4vh; border-left: 1px solid #000000; border-bottom: 1px solid #000000;"></td>
+                </tr>
+                <tr>
+                    <td style="width: 2vw; height: 4vh; border-right: 1px solid #000000; border-top: 1px solid #000000;"></td>
+                    <td style="width: 2vw; height: 4vh; border-left: 1px solid #000000; border-top: 1px solid #000000;"></td>
+                </tr>
+            </table>
         </div>
         
     </div>
-   
 {% endblock %}
 

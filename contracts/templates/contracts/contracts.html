@@ -32,9 +32,39 @@ setTimeout(next_screen, ({{ time }} * 1000));
         Tiempo restante para contestar: <b id="countdown">10</b> segundos
     </div>
     <div class="row">
-            <h4>¿Qué tan dispuesto está a aceptar este contrato?</h4>
-            <p>Por favor elija cualquier número entre 1 y 5 para indicar en que lugar de la escala se encuentra. Use
+        <div class="col text-center">
+            <h4 class="title">Contrato</h4>
+
+            <p class="text">Pago: ${{ config_contract.payment }}</p>
+
+            <p class="text">
+                El seguro vale ${{ config_contract.insurance }}, <br>
+                se deduce ese {{ config_contract.percentage }}% de su pago</p>
+            {% if config_contract.bonusrelative == 0 %}
+                <p class="text">Bono por cumplir meta de tareas.</p>
+            {% else %}
+                <p class="text">Bono por hacer más tareas que otros.</p>
+            {% endif %}
+
+            {% if config_contract.alone == 0 %}
+                <p class="text">Trabajo Individual</p>
+            {% else %}
+                <p class="text">Trabajo en Parejas</p>
+            {% endif %}
+        </div>
+
+        <div class="col">
+            <h4 class="title">¿Qué tan dispuesto está a aceptar este contrato?</h4>
+
+            <p class="text">Por favor elija cualquier número entre 1 y 5 para indicar en que lugar de la escala se encuentra. Use
                 1, 2, 3, 4 ó 5.</p>
+
+            <p class="text"></p>
+            
+            <p class="text"></p>
+    
+            <p class="text"></p>
+
             <div class="d-flex">
                 <div class="cont-text-radio">
                     <p class="text-radio">Disposición</p>
@@ -51,7 +81,7 @@ setTimeout(next_screen, ({{ time }} * 1000));
                     <input type="hidden" id="arrayTime" name="list_time_choice" value="[ ">
             </div>
         </div>
+    </div>
 </div>
-{% next_button %}
 
 {% endblock %}
