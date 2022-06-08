@@ -90,7 +90,8 @@ class screen1(Page):
         return {
             "congruent": self.participant.vars['congruent'],
             "time": Constants.seconds_per_template,
-            "round": self.subsession.round_number - 4
+            "round": self.subsession.round_number - 4,
+            "pair": self.subsession.round_number - 20
         }
 
 

@@ -28,7 +28,11 @@
             {% if round < 1 %}
                 Práctica # {{ subsession.round_number }}
             {% else %}
-                Contrato # {{ round }}
+                {% if round < 17 %}
+                    Contrato # {{ round }}
+                {% else %}
+                    Par # {{ pair }}
+                {% endif %} 
             {% endif %} 
         </div>
         
