@@ -315,7 +315,12 @@ class Player(BasePlayer):
 
     correct =   models.IntegerField()  # correct answer stroop task
     points =   models.IntegerField()  # of correct answers
-  
+
+    pair1 = models.StringField()
+    pair2 = models.StringField()
+    pair3 = models.StringField()
+    pair4 = models.StringField()
+
 
     def rellenar_campos(self, campo):
         for i in range(1, Constants.num_rounds+1):
@@ -327,21 +332,21 @@ class Player(BasePlayer):
         return self.congruent
 
     def set_pago(self):
-        if (self.round_number>4):
-            if self.participant.vars['congruent'] == True:
-                if self.left == Constants.answers_c[self.round_number]:
-                    self.correct=1
-                else:
-                    self.correct=0
-            else: 
-                if self.left == Constants.answers_i[self.round_number]:
-                    self.correct=1
-                else:
-                    self.correct=0
-            if self.correct==1: 
+        if self.participant.vars['congruent'] == True:
+            if int(self.left) == Constants.answers_c[self.round_number-1]:
+                self.correct=1
+            else:
+                 self.correct=0
+        else: 
+            if int(self.left) == Constants.answers_i[self.round_number-1]:
+                self.correct=1
+            else:
+                self.correct=0
+        if self.correct==1: 
+            if (self.round_number>4):
                 self.participant.vars['points'] = self.participant.vars['points']+1
                 self.points= self.participant.vars['points']
-                return self.participant.vars['points'] 
+            return self.participant.vars['points'] 
 
         if (self.round_number==Constants.num_rounds):
             answer_tasks = []
@@ -354,10 +359,12 @@ class Player(BasePlayer):
 #                else:
 #                    if answer_tasks[k] == Constants.answers_i[k]:
 #                        self.participant.vars['points'] = self.participant.vars['points']+1
-            if self.participant.vars['points']==16:
+            if self.participant.vars['points']>=16:
                 self.pago= Constants.fixed_payoff + Constants.variable_payoff
             else:
                 self.pago= Constants.fixed_payoff
+            self.participant.vars['pagototal']=self.pago        
+            
 
 
 

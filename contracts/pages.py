@@ -51,7 +51,7 @@ class instructions_contracts(Page):
 
 class instructions_pairs(Page):
     def is_displayed(self):
-        return self.round_number == 20
+        return self.round_number == 21
 
 
 class contracts(Page):
@@ -59,7 +59,7 @@ class contracts(Page):
     form_fields = ['n_round', 'n_contract', 'choice', 'choice_time', 'list_choice', 'list_time_choice']
 
     def is_displayed(self):
-        return self.round_number > 4
+        return self.round_number > 4 and self.round_number < 21
 
     def vars_for_template(self):
         print("orden preguntas", self.participant.vars['orden_preguntas'])
@@ -148,7 +148,58 @@ class screen7(Page):
     def before_next_page(self):
             self.player.set_pago()
 
-page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
+class pair1(Page):
+    form_model = 'player'
+    form_fields = ['pair1']
+    def vars_for_template(self):
+        return {
+            "time": Constants.seconds_per_choice
+        }
+    def is_displayed(self):
+        return self.round_number == 21
+
+class pair2(Page):
+    form_model = 'player'
+    form_fields = ['pair2']
+    def vars_for_template(self):
+        return {
+            "time": Constants.seconds_per_choice
+        }
+    
+    def is_displayed(self):
+        return self.round_number == 22
+
+class pair3(Page):
+    form_model = 'player'
+    form_fields = ['pair3']
+    def vars_for_template(self):
+        return {
+            "time": Constants.seconds_per_choice
+        }
+    
+    def is_displayed(self):
+        return self.round_number == 23
+
+class pair4(Page):
+    form_model = 'player'
+    form_fields = ['pair4']
+    def vars_for_template(self):
+        return {
+            "time": Constants.seconds_per_choice
+        }
+    
+    def is_displayed(self):
+        return self.round_number == 24
+
+class thanks(Page):
+    def vars_for_template(self): 
+        return {
+            "identificador" : self.participant.vars['identificador'],
+            "points" : self.participant.vars['points'],
+            "pagototal" : "$"+format(int(str(self.participant.vars['pagototal']).split(",")[0]),',d')
+        }
+
+page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
