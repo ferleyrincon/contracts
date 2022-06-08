@@ -210,58 +210,58 @@ class Constants(BaseConstants):
                         ]
     
     # Configuracion las respuestas congruentes
-    answers_c =     [
-                            1, #1 -> True
-                            2, #2 -> False
-                            2, #3 -> False
-                            1, #4 -> True
-                            1, #5 -> True
-                            2, #6 -> False
-                            2, #7 -> False
-                            1, #8 -> True
-                            2, #9 -> False
-                            2, #10 -> False
-                            2, #11 -> False
-                            1, #12 -> True
-                            1, #13 -> True
-                            2, #14 -> False
-                            2, #15 -> False
-                            2, #16 -> False
-                            1, #17 -> True
-                            2, #18 -> False
-                            2, #19 -> False
-                            2, #20 -> False
-                            1, #21 -> True
-                            1, #22 -> True
-                            1, #23 -> True
-                            1, #24 -> True
-                        ]
+    answers_c=     [
+                        1, #1 -> True
+                        0, #2 -> True
+                        0, #3 -> True
+                        1, #4 -> True
+                        1, #5 -> True
+                        0, #6 -> True
+                        0, #7 -> True
+                        1, #8 -> True
+                        0, #9 -> True
+                        0, #10 -> True
+                        0, #11 -> True
+                        1, #12 -> True
+                        1, #13 -> True
+                        0, #14 -> True
+                        0, #15 -> True
+                        0, #16 -> True
+                        1, #17 -> True
+                        0, #18 -> True
+                        0, #19 -> True
+                        0, #20 -> True
+                        1, #21 -> True
+                        1, #22 -> True
+                        1, #23 -> True
+                        1, #24 -> True
+                    ]
     # Configuracion las respuestas INcongruentes
-    answers_i =     [
-                            2, #1 -> False
-                            1, #2 -> True
-                            1, #3 -> True
-                            2, #4 -> False
-                            2, #5 -> False
-                            1, #6 -> True
-                            1, #7 -> True
-                            2, #8 -> False
-                            1, #9 -> True
-                            1, #10 -> True
-                            1, #11 -> True
-                            2, #12 -> False
-                            2, #13 -> False
-                            1, #14 -> True
-                            1, #15 -> True
-                            1, #16 -> True
-                            2, #17 -> False
-                            1, #18 -> True
-                            1, #19 -> True
-                            1, #20 -> True
-                            2, #21 -> False
-                            2, #22 -> False
-                            2, #23 -> False
-                            2, #24 -> False
+    answers_i=     [
+                        0, #1 -> True
+                        1, #2 -> True
+                        1, #3 -> True
+                        0, #4 -> True
+                        0, #5 -> True
+                        1, #6 -> True
+                        1, #7 -> True
+                        0, #8 -> True
+                        1, #9 -> True
+                        1, #10 -> True
+                        1, #11 -> True
+                        0, #12 -> True
+                        0, #13 -> True
+                        1, #14 -> True
+                        1, #15 -> True
+                        1, #16 -> True
+                        0, #17 -> True
+                        1, #18 -> True
+                        1, #19 -> True
+                        1, #20 -> True
+                        0, #21 -> True
+                        0, #22 -> True
+                        0, #23 -> True
+                        0, #24 -> True
                         ]
 
     for i in range(len(config_word)):
@@ -273,6 +273,7 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         # Para el random del congruente
         for j in self.get_players():
+            j.participant.vars['points'] = 0
             j.get_congruent()
 
         if self.round_number == 1:
@@ -310,10 +311,11 @@ class Player(BasePlayer):
     consent = models.BooleanField(blank=True)
     consent_account = models.BooleanField(blank=True)
     identificador = models.StringField(label='Para iniciar por favor ingrese las iniciales de su primer nombre y apellido seguido de su fecha de nacimiento. Por ejemplo, si usted se llama Lina Ríos y usted nació el 11 de febrero de 1995, debe ingresar LR11021995. Escriba todo en mayúscula. Este código es importante para asegurar su participación en el resto de la actividad y la realización de los pagos.')
-
-    contract_pago = models.IntegerField()
-
     congruent = models.BooleanField() # Saber si es tratamiento congruente o no congruente el jugador
+
+    correct =   models.IntegerField()  # correct answer stroop task
+    points =   models.IntegerField()  # of correct answers
+  
 
     def rellenar_campos(self, campo):
         for i in range(1, Constants.num_rounds+1):
@@ -325,24 +327,37 @@ class Player(BasePlayer):
         return self.congruent
 
     def set_pago(self):
+        if (self.round_number>4):
+            if self.participant.vars['congruent'] == True:
+                if self.left == Constants.answers_c[self.round_number]:
+                    self.correct=1
+                else:
+                    self.correct=0
+            else: 
+                if self.left == Constants.answers_i[self.round_number]:
+                    self.correct=1
+                else:
+                    self.correct=0
+            if self.correct==1: 
+                self.participant.vars['points'] = self.participant.vars['points']+1
+                self.points= self.participant.vars['points']
+                return self.participant.vars['points'] 
+
         if (self.round_number==Constants.num_rounds):
             answer_tasks = []
-            for j in self.in_all_rounds():
-                answer_tasks.append(j.left)
-            for k in range (5,24):
-                if self.participant.vars['congruent'] == True:
-                    if answer_tasks[k] == Constants.answers_c[k]:
-                        self.participant.vars['points'] = self.participant.vars['points']+1
-                else:
-                    if answer_tasks[k] == Constants.answers_i[k]:
-                        self.participant.vars['points'] = self.participant.vars['points']+1
+#            for j in self.in_all_rounds():
+#                answer_tasks.append(j.left)
+#            for k in range (5,24):
+#                if self.participant.vars['congruent'] == True:
+#                    if answer_tasks[k] == Constants.answers_c[k]:
+#                        self.participant.vars['points'] = self.participant.vars['points']+1
+#                else:
+#                    if answer_tasks[k] == Constants.answers_i[k]:
+#                        self.participant.vars['points'] = self.participant.vars['points']+1
             if self.participant.vars['points']==16:
                 self.pago= Constants.fixed_payoff + Constants.variable_payoff
             else:
                 self.pago= Constants.fixed_payoff
-        else:
-            self.pago= 0
-
 
 
 
