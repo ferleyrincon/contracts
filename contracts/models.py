@@ -345,8 +345,8 @@ class Player(BasePlayer):
         if self.correct==1: 
             if (self.round_number>4):
                 self.participant.vars['points'] = self.participant.vars['points']+1
-                self.points= self.participant.vars['points']
-            return self.participant.vars['points'] 
+        self.points= self.participant.vars['points']
+        return self.participant.vars['points'] 
 
         if (self.round_number==Constants.num_rounds):
             answer_tasks = []
