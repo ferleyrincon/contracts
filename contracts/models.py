@@ -271,10 +271,10 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        # Para el random del congruente
-        for j in self.get_players():
-            j.participant.vars['points'] = 0
-            j.get_congruent()
+        if self.round_number==1:
+            for j in self.get_players():
+                j.participant.vars['points'] = 0
+                j.get_congruent()
 
         if self.round_number == 1:
             for p in self.get_players():
