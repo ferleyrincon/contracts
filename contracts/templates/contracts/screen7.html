@@ -87,24 +87,24 @@
         {% if config_screen.left == 'w' %}
         <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.word_color }};" class="box_option" id="left">
             <input type="radio" id="left" name="option" value="1" class="radio_option">
-            {{ config_screen.opc1 }}
+            <b>{{ config_screen.opc1 }}</b>
         </div>
         {% else %}
         <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 21vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.color }};" class="box_option" id="left">
             <input type="radio" id="left" name="option" value="1" class="radio_option">
-            {{ config_screen.opc1 }}
+            <b>{{ config_screen.opc1 }}</b>
         </div>
         {% endif %}
         
         {% if config_screen.left == 'w' %}
         <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.color }};" class="box_option" id="right">
             <input type="radio" id="right" name="option" value="2" class="radio_option">
-            {{ config_screen.opc2 }}
+            <b>{{ config_screen.opc2 }}</b>
         </div>
         {% else %}
         <div style="position: absolute; width: 8vw; height: 4vh; top: 73vh; left: 71vw; text-align: center; vertical-align: middle; background-color: #f5f5f5; color: {{ config_screen.word_color }};" class="box_option" id="right">
             <input type="radio" id="right" name="option" value="2" class="radio_option">
-            {{ config_screen.opc2 }}
+            <b>{{ config_screen.opc2 }}</b>
         </div>
         {% endif %}
 
