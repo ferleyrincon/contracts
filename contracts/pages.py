@@ -23,6 +23,9 @@ class welcome2(Page):
 
     def is_displayed(self):
         return self.round_number == 1
+    
+    def before_next_page(self):
+        self.subsession.set_id_players()
 
 class instructions_task(Page):
     def is_displayed(self):
@@ -202,8 +205,8 @@ class thanks(Page):
     def is_displayed(self):
         return self.round_number == 24
 
-page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, thanks]
+#page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, thanks]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
-#page_sequence = [screen7]
+page_sequence = [consent, welcome1, welcome2,thanks]

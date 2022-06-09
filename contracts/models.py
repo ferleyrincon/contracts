@@ -283,6 +283,10 @@ class Subsession(BaseSubsession):
         #else:
             #for p in self.get_players():
                 #p.contract_pago = p.in_round(1).pregunta_pago
+
+    def set_id_players(self):
+        for j in self.get_players():
+            j.set_id()
     
 class Group(BaseGroup): 
     pass
@@ -346,7 +350,6 @@ class Player(BasePlayer):
             if (self.round_number>4):
                 self.participant.vars['points'] = self.participant.vars['points']+1
         self.points= self.participant.vars['points']
-        return self.participant.vars['points'] 
 
         if (self.round_number==Constants.num_rounds):
             answer_tasks = []
@@ -366,5 +369,7 @@ class Player(BasePlayer):
             self.participant.vars['pagototal']=self.pago        
             
 
+    def set_id(self):
+            self.participant.vars['identificador'] = self.in_round(1).identificador
 
 
