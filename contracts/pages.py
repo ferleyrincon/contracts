@@ -197,7 +197,7 @@ class thanks(Page):
         return {
             "identificador" : self.participant.vars['identificador'],
             "points" : self.participant.vars['points'],
-            "pagototal" : "$"+format(int(str(self.participant.vars['pagototal']).split(",")[0]),',d')
+            "pagototal" : self.participant.vars['pagototal']
         }
     def is_displayed(self):
         return self.round_number == 24
