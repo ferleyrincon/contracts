@@ -467,3 +467,58 @@ class Player(BasePlayer):
         [5,'Entre $ 1.600.000 - $ 1.800.000'],
         [6,'Mayor a $ 1.800.000'],
     ], label="8. ¿Cuál es el rango de su ingreso mensual?")
+
+    p_risk = models.PositiveIntegerField(choices=[1,2,3,4,5],
+                                       widget=widgets.RadioSelectHorizontal(),
+                                       verbose_name="¿Qué tan dispuesto (a) está o no está usted a tomar riesgos?"
+                                       )
+    p_time = models.PositiveIntegerField(choices=[1,2,3,4,5],
+                                       widget=widgets.RadioSelectHorizontal(),
+                                       verbose_name="¿Qué tan dispuesto está a renunciar a algo que es beneficioso para usted en este momento a fin de obtener mayores beneficios en el futuro?"
+                                       )
+    p_time2 = models.PositiveIntegerField(choices=[1,2,3,4,5],
+                                       widget=widgets.RadioSelectHorizontal(),
+                                       verbose_name="¿Qué tan dispuesto está a posponer las tareas, incluso cuando sabe que sería mejor hacerlas de inmediato?"
+                                       )
+
+    p_sex = models.IntegerField(
+    choices=[
+        [1, 'Hombre'],
+        [2, 'Mujer'],
+        [3, 'Otro'],
+    ], label="1. ¿Cuál es su sexo?")
+    p_age = models.IntegerField(label="2. Edad")
+
+    p_pension = models.IntegerField(
+    choices=[
+        [1,'Aportando en un fondo de pensiones obligatorias'],
+        [2,'Aportando en un fondo de pensiones voluntarias (por ejemplo, BEPS)'],
+        [3,'Ahorrando'],
+        [4,'Haciendo inversiones'],
+        [5,'Pagando un seguro por su cuenta'],
+        [6,'Preparando a sus hijos para que puedan ayudarlo en su vejez'],
+        [7,'Nada'],
+    ], label="4. ¿Qué está haciendo usted actualmente para mantenerse económicamente en su vejez?")
+
+    p_pension2 = models.IntegerField(
+    choices=[
+        [1,'Aportando en un fondo de pensiones obligatorias'],
+        [2,'Aportando en un fondo de pensiones voluntarias (por ejemplo, BEPS)'],
+        [3,'Ahorrando'],
+        [4,'Haciendo inversiones'],
+        [5,'Pagando un seguro por su cuenta'],
+        [6,'Preparando a los hijos para que puedan ayudarlos en su vejez'],
+        [7,'Nada'],
+    ], label="3. ¿Qué están haciendo (hicieron) sus padres para mantenerse económicamente en la vejez?")
+
+    p_children = models.CurrencyField(min=c(0), label="5. ¿Cuántos hijos (hijas) tiene? [Si no tiene hijos/hijas escriba 0]")
+
+    p_married = models.IntegerField(
+    choices=[
+        [1, 'Unión libre'],
+        [2, 'Casado (a)'],
+        [3, 'Viudo (a)'],
+        [4, 'Soltero (a)'],
+        [5, 'Divorciado (a)/Separado(a)'],
+    ], label="6. Estado civil")
+

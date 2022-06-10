@@ -1,0 +1,303 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Encuesta Final
+{% endblock %}
+
+{% block scripts %}
+    <link href="{% static 'css/styles_radio.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<h4>Preguntas sobre su disposición a actuar de una determinada manera.</h4>
+<br/><span> En una escala del 1 al 5, donde <b>1</b> significa que "no está nada dispuesto(a) " y <b>5</b> significa que "está muy dispuesto(a)", por favor diganos: </span>
+    <br/>
+<table class="table">
+   <tr>
+     <td class="td_q">¿Qué tan dispuesto (a) está o no está usted a tomar riesgos?</td>
+     <td class="d-flex">
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_risk" id="op1" value="1"><br>
+             <label class="form-check-label" for="op1">1</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_risk" id="op2" value="2"><br>
+             <label class="form-check-label" for="op2">2</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_risk" id="op3" value="3"><br>
+             <label class="form-check-label" for="op3">3</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_risk" id="op4" value="4"><br>
+             <label class="form-check-label" for="op4">4</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_risk" id="op5" value="5"><br>
+             <label class="form-check-label" for="op5">5</label>
+         </div>
+     </td>
+   </tr>
+   <tr>
+     <td class="td_q">¿Qué tan dispuesto está a renunciar a algo que es beneficioso para usted en este momento a fin de obtener mayores beneficios en el futuro?</td>
+     <td class="d-flex">
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time" id="op1" value="1"><br>
+             <label class="form-check-label" for="op1">1</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time" id="op2" value="2"><br>
+             <label class="form-check-label" for="op2">2</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time" id="op3" value="3"><br>
+             <label class="form-check-label" for="op3">3</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time" id="op4" value="4"><br>
+             <label class="form-check-label" for="op4">4</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time" id="op5" value="5"><br>
+             <label class="form-check-label" for="op5">5</label>
+         </div>
+     </td>
+   </tr>
+   <tr>
+     <td class="td_q">¿Qué tan dispuesto está a posponer las tareas, incluso cuando sabe que sería mejor hacerlas de inmediato?</td>
+     <td class="d-flex">
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time2" id="op1" value="1"><br>
+             <label class="form-check-label" for="op1">1</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time2" id="op2" value="2"><br>
+             <label class="form-check-label" for="op2">2</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time2" id="op3" value="3"><br>
+             <label class="form-check-label" for="op3">3</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time2" id="op4" value="4"><br>
+             <label class="form-check-label" for="op4">4</label>
+         </div>
+         <div class="form-check">
+             <input class="form-check-input" type="radio" name="p_time2" id="op5" value="5"><br>
+             <label class="form-check-label" for="op5">5</label>
+         </div>
+     </td>
+   </tr>
+ </table>
+
+ <p>1. ¿Cuál es su sexo?</p>
+ <div class="wrapper">
+     <p>           
+         <table>
+             <tr style="text-align: center; vertical-align: middle;">
+                 <td style="width: 20px; text-align: center; vertical-align: middle;">
+                     <input type="radio" id="p_sex_opc1" name="p_sex" value="1">
+                 </td><td style="text-align: left; vertical-align: middle;">
+                     <label for="p_sex_opc1">Hombre</label><br>
+                 </td>
+             </tr>
+             <tr style="text-align: center; vertical-align: middle;">
+                 <td style="width: 20px; text-align: center; vertical-align: middle;">
+                     <input type="radio" id="p_sex_opc2" name="p_sex" value="2">
+                 </td><td style="text-align: left; vertical-align: middle;">
+                     <label for="p_sex_opc2">Mujer</label><br>
+                 </td>
+             </tr>
+             <tr>
+                 <td style="width: 20px; text-align: center; vertical-align: middle;">
+                     <input type="radio" id="p_sex_opc3" name="p_sex" value="3">
+                 </td><td style="text-align: left; vertical-align: middle;">
+                     <label for="p_sex_opc3">Otro</label><br>
+                 </td>
+             </tr>
+         </table>
+     </p>
+
+     <p>2. Edad</p>
+     <textarea name="p_age" id="p_age" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+
+     <p>3. ¿Qué están haciendo (hicieron) sus padres para mantenerse económicamente en la vejez?</p>
+     <div class="wrapper">
+         <p>           
+             <table>
+                 <tr style="text-align: center; vertical-align: middle;">
+                     <td style="width: 20px; text-align: center; vertical-align: middle;">
+                         <input type="radio" id="p_pension2_opc1" name="p_pension2" value="1">
+                     </td><td style="text-align: left; vertical-align: middle;">
+                         <label for="p_pension2_opc1">Aportando en un fondo de pensiones obligatorias</label><br>
+                     </td>
+                 </tr>
+                 <tr style="text-align: center; vertical-align: middle;">
+                     <td style="width: 20px; text-align: center; vertical-align: middle;">
+                         <input type="radio" id="p_pension2_opc2" name="p_pension2" value="2">
+                     </td><td style="text-align: left; vertical-align: middle;">
+                         <label for="p_pension2_opc2">Aportando en un fondo de pensiones voluntarias (por ejemplo, BEPS)</label><br>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td style="width: 20px; text-align: center; vertical-align: middle;">
+                         <input type="radio" id="p_pension2_opc3" name="p_pension2" value="3">
+                     </td><td style="text-align: left; vertical-align: middle;">
+                         <label for="p_pension2_opc3">Ahorrando</label><br>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td style="width: 20px; text-align: center; vertical-align: middle;">
+                         <input type="radio" id="p_pension2_opc4" name="p_pension2" value="4">
+                     </td><td style="text-align: left; vertical-align: middle;">
+                         <label for="p_pension2_opc4">Haciendo inversiones</label><br>
+                     </td>
+                 </tr>
+                 
+                 <tr style="text-align: center; vertical-align: middle;">
+                     <td style="width: 20px; text-align: center; vertical-align: middle;">
+                         <input type="radio" id="p_pension2_opc5" name="p_pension2" value="5">
+                     </td><td style="text-align: left; vertical-align: middle;">
+                         <label for="p_pension2_opc5">Pagando un seguro por su cuenta</label><br>
+                     </td>
+                 </tr>
+                 <tr>
+                     <td style="width: 20px; text-align: center; vertical-align: middle;">
+                         <input type="radio" id="p_pension2_opc6" name="p_pension2" value="6">
+                     </td><td style="text-align: left; vertical-align: middle;">
+                         <label for="p_pension2_opc6">Preparando a los hijos para que puedan ayudarlos en su vejez</label><br>
+                     </td>
+                 </tr>
+                 <tr>
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_pension2_opc7" name="p_pension2" value="7">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_pension2_opc7">Nada</label><br>
+                    </td>
+                </tr>
+             </table>
+         </p>
+
+         <p>4. ¿Qué está haciendo usted actualmente para mantenerse económicamente en su vejez?</p>
+         <div class="wrapper">
+             <p>           
+                 <table>
+                     <tr style="text-align: center; vertical-align: middle;">
+                         <td style="width: 20px; text-align: center; vertical-align: middle;">
+                             <input type="radio" id="p_pension_opc1" name="p_pension" value="1">
+                         </td><td style="text-align: left; vertical-align: middle;">
+                             <label for="p_pension_opc1">Aportando en un fondo de pensiones obligatorias</label><br>
+                         </td>
+                     </tr>
+                     <tr style="text-align: center; vertical-align: middle;">
+                         <td style="width: 20px; text-align: center; vertical-align: middle;">
+                             <input type="radio" id="p_pension_opc2" name="p_pension" value="2">
+                         </td><td style="text-align: left; vertical-align: middle;">
+                             <label for="p_pension_opc2">Aportando en un fondo de pensiones voluntarias (por ejemplo, BEPS)</label><br>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td style="width: 20px; text-align: center; vertical-align: middle;">
+                             <input type="radio" id="p_pension_opc3" name="p_pension" value="3">
+                         </td><td style="text-align: left; vertical-align: middle;">
+                             <label for="p_pension_opc3">Ahorrando</label><br>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td style="width: 20px; text-align: center; vertical-align: middle;">
+                             <input type="radio" id="p_pension_opc4" name="p_pension" value="4">
+                         </td><td style="text-align: left; vertical-align: middle;">
+                             <label for="p_pension_opc4">Haciendo inversiones</label><br>
+                         </td>
+                     </tr>
+                     
+                     <tr style="text-align: center; vertical-align: middle;">
+                         <td style="width: 20px; text-align: center; vertical-align: middle;">
+                             <input type="radio" id="p_pension_opc5" name="p_pension" value="5">
+                         </td><td style="text-align: left; vertical-align: middle;">
+                             <label for="p_pension_opc5">Pagando un seguro por su cuenta</label><br>
+                         </td>
+                     </tr>
+                     <tr>
+                         <td style="width: 20px; text-align: center; vertical-align: middle;">
+                             <input type="radio" id="p_pension_opc6" name="p_pension" value="6">
+                         </td><td style="text-align: left; vertical-align: middle;">
+                             <label for="p_pension_opc6">Preparando a los hijos para que puedan ayudarlos en su vejez</label><br>
+                         </td>
+                     </tr>
+                     <tr>
+                        <td style="width: 20px; text-align: center; vertical-align: middle;">
+                            <input type="radio" id="p_pension_opc7" name="p_pension" value="7">
+                        </td><td style="text-align: left; vertical-align: middle;">
+                            <label for="p_pension_opc7">Nada</label><br>
+                        </td>
+                    </tr>
+                 </table>
+             </p>
+
+<p>5. ¿Cuántos hijos (hijas) tiene? [Si no tiene hijos/hijas escriba 0]</p>
+<textarea name="p_children" id="p_children" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+
+
+<p>6. Estado civil</p>
+<div class="wrapper">
+    <p>           
+        <table>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_married_opc1" name="p_married" value="1">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_married_opc1">Unión libre</label><br>
+                </td>
+            </tr>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_married_opc2" name="p_married" value="2">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_married_opc2">Casado (a)</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_married_opc3" name="p_married" value="3">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_married_opc3">Viudo (a)</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_married_opc4" name="p_married" value="4">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_married_opc4">Soltero (a)</label><br>
+                </td>
+            </tr>
+            
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_married_opc5" name="p_married" value="5">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_married_opc5">Divorciado (a)/Separado(a)</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_married_opc6" name="p_married" value="6">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_married_opc6">Preparando a los hijos para que puedan ayudarlos en su vejez</label><br>
+                </td>
+            </tr>
+            <tr>
+               <td style="width: 20px; text-align: center; vertical-align: middle;">
+                   <input type="radio" id="p_married_opc7" name="p_married" value="7">
+               </td><td style="text-align: left; vertical-align: middle;">
+                   <label for="p_married_opc7">Nada</label><br>
+               </td>
+           </tr>
+        </table>
+    </p>
+
+{{ form.errors }}
+{% next_button %}
+
+{% endblock %}

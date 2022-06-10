@@ -224,9 +224,16 @@ class experience(Page):
     def is_displayed(self):
         return self.round_number == 24
 
-page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, instructions_pairs, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, aspirations, crt, experience, thanks]
+class survey(Page):
+    form_model = 'player'
+    form_fields = ['p_risk','p_time','p_time2','p_sex','p_pension','p_pension2','p_children','p_married']
+    def is_displayed(self):
+        return self.round_number == 24
+
+
+page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, instructions_pairs, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, aspirations, crt, experience, survey, thanks]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
-#page_sequence = [experience, thanks]
+#page_sequence = [aspirations, crt, experience, survey, thanks]
 
