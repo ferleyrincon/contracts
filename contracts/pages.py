@@ -205,8 +205,19 @@ class thanks(Page):
     def is_displayed(self):
         return self.round_number == 24
 
-page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, thanks]
+
+class aspirations(Page):
+    form_model = 'player'
+    form_fields = ['A1','A2','A3','A4','A5','A6','A7','A8']
+    def is_displayed(self):
+        return self.round_number == 24
+
+class crt(Page):
+    form_model = 'player'
+    form_fields = ['crt1','crt2','crt3']
+    def is_displayed(self):
+        return self.round_number == 24
+
+page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, instructions_pairs, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, aspirations, crt,  thanks]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
-
-#page_sequence = [consent, welcome1, welcome2,thanks]

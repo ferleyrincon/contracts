@@ -1,0 +1,221 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Aspiraciones
+{% endblock %}
+
+{% block styles %}
+<link href="{% static 'parents/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+<p>1. A los 65 años, ¿Cuál le gustaría que sea su principal fuente de ingreso?</p>
+<div class="wrapper">
+    <p>           
+        <table>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A1_opc1" name="A1" value="1">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A1_opc1">Actividades laborales</label><br>
+                </td>
+            </tr>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A1_opc2" name="A1" value="2">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A1_opc2">Jubilación ó pensión</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A1_opc3" name="A1" value="3">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A1_opc3">Hijos</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A1_opc4" name="A1" value="4">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A1_opc4">Familiares </label><br>
+                </td>
+            </tr>
+            
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A1_opc5" name="A1" value="5">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A1_opc2">Subsidios del gobierno</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A1_opc6" name="A1" value="6">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A1_opc3">Ingresos de inversiones (por ejemplo, arriendos)</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A1_opc7" name="A1" value="7">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A1_opc4">Ahorros</label><br>
+                </td>
+            </tr>
+        </table>
+    </p>
+
+    <p>2. A los 65 años, ¿Cuál le gustaría que sea el rango de su ingreso mensual?</p>
+<div class="wrapper">
+    <p>           
+        <table>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A2_opc1" name="A2" value="1">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A2_opc1">Menos de $ 1.000.000</label><br>
+                </td>
+            </tr>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A2_opc2" name="A2" value="2">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A2_opc2">Entre $ 1.000.000 - $ 1.500.000</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A2_opc3" name="A2" value="3">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A2_opc3">Entre $ 1.500.000 - $ 2.000.000</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A2_opc4" name="A2" value="4">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A2_opc4">Entre $ 2.000.000 - $ 4.000.000</label><br>
+                </td>
+            </tr>
+            
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A2_opc5" name="A2" value="5">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A2_opc2">Entre $ 4.000.000 - $ 8.000.000</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="A2_opc6" name="A2" value="6">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="A2_opc3">Mayor a $ 8.000.000</label><br>
+                </td>
+            </tr>
+        </table>
+    </p>
+
+    <p>3. A los 65 años, ¿Cuánto le gustaría que sea su ingreso mensual?</p>
+    <textarea name="A3" id="A3" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+    
+    <p>4. A los 65 años, ¿Cuántas horas a la semana le gustaría trabajar?</p>
+    <textarea name="A4" id="A4" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+
+    <p>5. A los 65 años, ¿Cuánto dinero al mes le gustaría recibir de sus hijos?</p>
+    <textarea name="A5" id="A5" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+
+    <p>6. A los 65 años, ¿Cuántas horas de ayuda a la semana le gustaría recibir de sus hijos?</p>
+    <textarea name="A6" id="A6" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+
+    <p>7. A los 65 años, ¿Dónde le gustaría vivir?</p>
+    <div class="wrapper">
+        <p>           
+            <table>
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="A7_opc1" name="A7" value="1">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="A7_opc1">Casa propia</label><br>
+                    </td>
+                </tr>
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="A7_opc2" name="A7" value="2">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="A7_opc2">Casa en arriendo</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="A7_opc3" name="A7" value="3">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="A7_opc3">Casa de un familiar</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="A7_opc4" name="A7" value="4">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="A7_opc4">Hogar geriátrico público</label><br>
+                    </td>
+                </tr>
+                
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="A7_opc5" name="A7" value="5">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="A7_opc2">Hogar geriátrico privado</label><br>
+                    </td>
+                </tr>
+            </table>
+        </p>
+
+        <p>8. A los 65 años, ¿Con quién le gustaría vivir?</p>
+        <div class="wrapper">
+            <p>           
+                <table>
+                    <tr style="text-align: center; vertical-align: middle;">
+                        <td style="width: 20px; text-align: center; vertical-align: middle;">
+                            <input type="radio" id="A8_opc1" name="A8" value="1">
+                        </td><td style="text-align: left; vertical-align: middle;">
+                            <label for="A8_opc1">Solo (a)</label><br>
+                        </td>
+                    </tr>
+                    <tr style="text-align: center; vertical-align: middle;">
+                        <td style="width: 20px; text-align: center; vertical-align: middle;">
+                            <input type="radio" id="A8_opc2" name="A8" value="2">
+                        </td><td style="text-align: left; vertical-align: middle;">
+                            <label for="A8_opc2">Con alguno de sus hijos</label><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20px; text-align: center; vertical-align: middle;">
+                            <input type="radio" id="A8_opc3" name="A8" value="3">
+                        </td><td style="text-align: left; vertical-align: middle;">
+                            <label for="A8_opc3">Con otro familiar</label><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20px; text-align: center; vertical-align: middle;">
+                            <input type="radio" id="A8_opc4" name="A8" value="4">
+                        </td><td style="text-align: left; vertical-align: middle;">
+                            <label for="A8_opc4">Con conocidos</label><br>
+                        </td>
+                    </tr>
+                    
+                    <tr style="text-align: center; vertical-align: middle;">
+                        <td style="width: 20px; text-align: center; vertical-align: middle;">
+                            <input type="radio" id="A8_opc5" name="A8" value="5">
+                        </td><td style="text-align: left; vertical-align: middle;">
+                            <label for="A2_opc2">Otro</label><br>
+                        </td>
+                    </tr>
+                </table>
+            </p>
+{{ form.errors }}
+{% next_button %}
+
+{% endblock %}
