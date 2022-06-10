@@ -1,0 +1,213 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Experiencia Laboral
+{% endblock %}
+
+{% block styles %}
+<link href="{% static 'parents/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+<p>1. Escriba el nombre de su profesión/ocupación/carrera</p>
+<textarea name="p_ocupation" id="p_ocupation" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+
+
+<p>2. ¿Cuál es el nivel educativo más alto que cursó o está cursando?</p>
+<div class="wrapper">
+    <p>           
+        <table>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_educ_opc1" name="p_educ" value="1">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_educ_opc1">Primaria</label><br>
+                </td>
+            </tr>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_educ_opc2" name="p_educ" value="2">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_educ_opc2">Bachillerato</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_educ_opc3" name="p_educ" value="3">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_educ_opc3">Técnico</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_educ_opc4" name="p_educ" value="4">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_educ_opc4">Tecnólogo </label><br>
+                </td>
+            </tr>
+            
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_educ_opc5" name="p_educ" value="5">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_educ_opc5">Pregrado</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_educ_opc6" name="p_educ" value="6">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_educ_opc6">Posgrado (Especialización, Maestría, Doctorado)</label><br>
+                </td>
+            </tr>
+        </table>
+    </p>
+
+<p>3. ¿Está estudiando actualmente?</p>
+<div class="wrapper">
+    <p>           
+        <table>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_student_opc1" name="p_student" value="1">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_student_opc1">Sí</label><br>
+                </td>
+            </tr>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_student_opc2" name="p_student" value="0">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_student_opc2">No</label><br>
+                </td>
+            </tr>
+        </table>
+    </p>
+
+    <p>4. ¿Cuántos años de experiencia laboral tiene?</p>
+    <div class="wrapper">
+        <p>           
+            <table>
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_experience1_opc1" name="p_experience1" value="1">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_experience1_opc1">Menos de 1 año</label><br>
+                    </td>
+                </tr>
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_experience1_opc2" name="p_experience1" value="2">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_experience1_opc2">Entre 1 y 2 años</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_experience1_opc3" name="p_experience1" value="3">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_experience1_opc3">Entre 2 y 5 años</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_experience1_opc4" name="p_experience1" value="4">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_experience1_opc4">Entre 5 y 10 años</label><br>
+                    </td>
+                </tr>
+                
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_experience1_opc5" name="p_experience1" value="5">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_experience1_opc5">Más de 10 años</label><br>
+                    </td>
+                </tr>
+            </table>
+        </p>
+
+
+
+    <p>5. ¿Cuántos meses ha trabajado en su empresa actual?</p>
+    <textarea name="p_experience2" id="p_experience2" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+    
+    <p>6. ¿Cuántos meses ha trabajado como idependiente? [Si no ha sido independiente nunca escriba 0]</p>
+    <textarea name="p_selfemployed" id="p_selfemployed" class="form-control text_input" required style="margin-bottom: 5px;"></textarea> 
+
+    <p>7. ¿Ha trabajado por días?</p>
+<div class="wrapper">
+    <p>           
+        <table>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_casual_opc1" name="p_casual" value="1">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_casual_opc1">Sí</label><br>
+                </td>
+            </tr>
+            <tr style="text-align: center; vertical-align: middle;">
+                <td style="width: 20px; text-align: center; vertical-align: middle;">
+                    <input type="radio" id="p_casual_opc2" name="p_casual" value="0">
+                </td><td style="text-align: left; vertical-align: middle;">
+                    <label for="p_casual_opc2">No</label><br>
+                </td>
+            </tr>
+        </table>
+    </p>
+
+    <p>8. ¿Cuál es el rango de su ingreso mensual?</p>
+    <div class="wrapper">
+        <p>           
+            <table>
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_inc_opc1" name="p_inc" value="1">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_inc_opc1">Menos de $ 1.000.000</label><br>
+                    </td>
+                </tr>
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_inc_opc2" name="p_inc" value="2">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_inc_opc2">Entre $ 1.000.000 - $ 1.200.000</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_inc_opc3" name="p_inc" value="3">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_inc_opc3">Entre $ 1.200.000 - $ 1.400.000</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_inc_opc4" name="p_inc" value="4">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_inc_opc4">Entre $ 1.400.000 - $ 1.600.000</label><br>
+                    </td>
+                </tr>
+                
+                <tr style="text-align: center; vertical-align: middle;">
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_inc_opc5" name="p_inc" value="5">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_inc_opc5">Entre $ 1.600.000 - $ 1.800.000</label><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 20px; text-align: center; vertical-align: middle;">
+                        <input type="radio" id="p_inc_opc6" name="p_inc" value="6">
+                    </td><td style="text-align: left; vertical-align: middle;">
+                        <label for="p_inc_opc6">Mayor a $ 1.800.000</label><br>
+                    </td>
+                </tr>
+            </table>
+        </p>
+{{ form.errors }}
+{% next_button %}
+
+{% endblock %}

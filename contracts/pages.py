@@ -218,6 +218,15 @@ class crt(Page):
     def is_displayed(self):
         return self.round_number == 24
 
-page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, instructions_pairs, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, aspirations, crt,  thanks]
+class experience(Page):
+    form_model = 'player'
+    form_fields = ['p_ocupation','p_educ','p_student','p_experience1','p_experience2','p_selfemployed','p_casual','p_inc']
+    def is_displayed(self):
+        return self.round_number == 24
+
+#page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, instructions_pairs, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, aspirations, crt,  thanks]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
+
+page_sequence = [experience, thanks]
+

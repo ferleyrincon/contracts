@@ -420,3 +420,50 @@ class Player(BasePlayer):
     crt1 = models.CurrencyField(min=c(0), label="1. Una raqueta y una pelota cuestan $11.000 en total. La raqueta cuesta $10.000 más que la pelota. ¿Cuánto cuesta la pelota?")
     crt2 = models.CurrencyField(min=c(0), label="2. Si 5 máquinas tardan 5 minutos en fabricar 5 piezas, ¿cuánto tardarán 100 máquinas en fabricar 100 piezas?")
     crt3 = models.CurrencyField(min=c(0), label="3. En un lago hay una zona cubierta de lirios. El área de lirios se hace el doble de grande cada día. Si el área de lirios tarda 48 días en cubrir el lago entero, ¿cuántos días tardarán los lirios en cubrir la mitad del lago?")
+
+    p_ocupation = models.StringField(label="1. Escriba el nombre de su profesión/ocupación/carrera")
+
+    p_educ = models.IntegerField(
+    choices=[
+        [1,'Primaria'],
+        [2,'Bachillerato'],
+        [3,'Técnico'],
+        [4,'Tecnólogo'],
+        [5,'Pregrado'],
+        [6,'Posgrado (Especialización, Maestría, Doctorado)']
+    ], label="2. ¿Cuál es el nivel educativo más alto que cursó o está cursando?")
+
+    p_student = models.IntegerField(
+    choices=[
+        [1, 'Sí'],
+        [0, 'No'],
+    ], label="3. ¿Está estudiando actualmente?")
+
+    p_experience1 = models.IntegerField(
+    choices=[
+        [1,'Menos de 1 año'],
+        [2,'Entre 1 y 2 años'],
+        [3,'Entre 2 y 5 años'],
+        [4,'Entre 5 y 10 años'],
+        [5,'Más de 10 años'],
+    ], label="4. ¿Cuántos años de experiencia laboral tiene?")
+
+    p_experience2 = models.CurrencyField(min=c(0), label="5. ¿Cuántos meses ha trabajado en su empresa actual?")
+
+    p_selfemployed = models.CurrencyField(min=c(0), label="6. ¿Cuántos meses ha trabajado como idependiente? [Si no ha sido independiente nunca escriba 0]")
+
+    p_casual = models.IntegerField(
+    choices=[
+        [1, 'Sí'],
+        [0, 'No'],
+    ], label="7. ¿Ha trabajado por días?")
+
+    p_inc = models.IntegerField(
+    choices=[
+        [1,'Menos de $ 1.000.000'],
+        [2,'Entre $ 1.000.000 - $ 1.200.000'],
+        [3,'Entre $ 1.200.000 - $ 1.400.000'],
+        [4,'Entre $ 1.400.000 - $ 1.600.000'],
+        [5,'Entre $ 1.600.000 - $ 1.800.000'],
+        [6,'Mayor a $ 1.800.000'],
+    ], label="8. ¿Cuál es el rango de su ingreso mensual?")
