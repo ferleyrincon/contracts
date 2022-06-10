@@ -224,9 +224,9 @@ class experience(Page):
     def is_displayed(self):
         return self.round_number == 24
 
-#page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, instructions_pairs, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, aspirations, crt,  thanks]
+page_sequence = [consent, welcome1, welcome2, instructions_task, instructions_contracts, instructions_pairs, screen1, screen2, screen3, contracts, pair1, pair2, pair3, pair4, screen5, screen6, screen7, answer_practice, aspirations, crt, experience, thanks]
 
 #page_sequence = [screen1, screen2, screen3, contracts, screen5, screen6, screen7, answer_practice]
 
-page_sequence = [experience, thanks]
+#page_sequence = [experience, thanks]
 
