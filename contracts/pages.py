@@ -200,7 +200,7 @@ class thanks(Page):
         return {
             "identificador" : self.participant.vars['identificador'],
             "points" : self.participant.vars['points'],
-            "pagototal" : self.participant.vars['pagototal']
+            "pagototal" : "$"+format(int(str(self.participant.vars['pagototal']).split(",")[0]),',d') 
         }
     def is_displayed(self):
         return self.round_number == 24
@@ -211,6 +211,7 @@ class aspirations(Page):
     form_fields = ['A1','A2','A3','A4','A5','A6','A7','A8']
     def is_displayed(self):
         return self.round_number == 24
+
 
 class crt(Page):
     form_model = 'player'
