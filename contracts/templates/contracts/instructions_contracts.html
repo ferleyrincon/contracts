@@ -1,67 +1,24 @@
-{% extends "global/Page.html" %}
-{% load otree static %}
-
-{% block styles %}
-<style type="text/css">
-#id_c4_5{
-    display: none;
-}
-</style>
-{% endblock %}
-
-{% block scripts %}
-<link href="{% static 'css/contracts.css' %}" rel="stylesheet">
-
-<script src="{% static 'js/contracts.js' %}"></script>
-
-<script type="text/javascript">
-var time = 0;
-var dateInit = Date.now();
-var dateClick = dateInit;
-
-$('label[for="id_choice_5"]').hide();
-
-</script>
-
-{% endblock %}
+{% extends "global/Page.html" %} {% load otree static %} 
 
 {% block content %}
-    <div class="row">
-        <div class="col text-center">
-            <h4 class="title">Estructura Contrato</h4>
+    <h1>Calificación de contratos</h1>
 
-            <p class="text">
-                Un PAGO de <b>$100,000</b> o <b>$60,000</b> por <br>
-                participar en la <i>actividad adicional</i> - Julio.</p>
-            <p class="text">
-                El valor del SEGURO,<br> 
-                se deduce un <b>20%</b> o <b>10%</b> de su pago.</p>
-            <p class="text">
-                Si el BONO por $20.000 se asigna <br> 
-                a los que <b>hagan más tareas</b> que otros o <br>a los que cumplan la <b>meta de tareas</b>.</p>
-            <p class="text">
-                Si es un trabajo <b>individual</b> o en <b>parejas</b>.</p>
-        </div>
-        <div class="col">
-            <h4>¿Qué tan dispuesto está a aceptar este contrato?</h4>
-            <p>Usted tendrá 10 segundos para calificar cada contrato en una escala entre 1 y 5. 
-                <ul>
-                    <li>Calificar un contrato con <b>1</b> significa que “no le gustaría para nada tener este contrato”
-                    <li>Calificar un contrato con <b>5</b> significa que “le gustaría mucho tener este contrato”. </li>
-                </ul>         
-            Puede usar 1, 2, 3, 4 ó 5 para indicar en que lugar de la escala se encuentra.
-            </p>
-            <p>En esta pregunta no hay respuestas correctas o incorrectas. Usted es libre de dar la calificación que prefiera</p>
-        <h6>Recuerde:</h6>
-        <ul>
-            <li>La <i>actividad adicional</i> dura <b>6 horas</b>, se realiza en un salón de la Universidad del Rosario e implica trabajos principalmente manuales.</li>
-            <li>El SEGURO consiste en una compensación de <b>$11,000</b> para quienes sean seleccionados para participar en la <i>actividad adicional</i>, y por fuerza mayor no puedan asistir.</li>
-            <li>Las otras características de la <i>actividad adicional</i> que no se mencionan son iguales para todos los contratos.</li>
-        </ul>       
-        </div>
+    <p> Los valores que puede tomar un contrato son:</p>  
 
-    </div>
-</div>
-{% next_button %}
+    <ol>
+        <li>Un PAGO de <b>$100,000</b> o <b>$60,000</b> por participar en la <i>actividad adicional</i> - Julio.</li>
+        <li>Un DESCUENTO de un <b>10%</b> o <b>20%</b> de su pago para comprar un SEGURO.<br>En caso de que no pueda ir a la <i>actividad adicional</i> el seguro le paga $11,000.</li>
+        <li>Si el BONO por $20.000 será asignado a los que <b>hagan más tareas</b> que otros o a los que cumplan la <b>meta de tareas</b>.</li> 
+        <li>Si el trabajo va ser <b>individual</b> o en <b>parejas</b>.</li>
+    </ol> 
+    
+        <p>
+            Recuerde que usted tendrá 10 segundos para calificar cada contrato en una escala entre 1 y 5.<br>
+            Puede usar 1, 2, 3, 4 ó 5 para indicar que tanto le gustaría tener cada contrato. 
+        </p>
+        <p>
+            En esta pregunta no hay respuestas correctas o incorrectas. Usted es libre de dar la calificación que prefiera.
+        </p>
 
+{% next_button %} 
 {% endblock %}
