@@ -393,10 +393,10 @@ class Player(BasePlayer):
         [6,'Mayor a $ 8.000.000'],
     ], label="2. A los 65 años, ¿Cuál cree será el rango de su ingreso mensual?")
 
-    A3 = models.StringField(min=c(0), max=c(100000000), label="3. A los 65 años, ¿Cuánto cree será su ingreso mensual?")
-    A4 = models.StringField(min=0, max=168, label="4. A los 65 años, ¿Cuántas horas a la semana cree que trabajará?")
-    A5 = models.StringField(min=c(0), max=c(100000000), label="5. A los 65 años, ¿Cuánto dinero cree que recibirá de sus hijos?")
-    A6 = models.StringField(min=0, max=168, label="6. A los 65 años, ¿Cuántas horas de ayuda a la semana cree que recibirá de sus hijos?")
+    A3 = models.StringField(label="3. A los 65 años, ¿Cuánto cree será su ingreso mensual?")
+    A4 = models.StringField(label="4. A los 65 años, ¿Cuántas horas a la semana cree que trabajará?")
+    A5 = models.StringField(label="5. A los 65 años, ¿Cuánto dinero cree que recibirá de sus hijos?")
+    A6 = models.StringField(label="6. A los 65 años, ¿Cuántas horas de ayuda a la semana cree que recibirá de sus hijos?")
 
     A7 = models.IntegerField(
     choices=[
@@ -417,9 +417,9 @@ class Player(BasePlayer):
         [6,'Otro'],
     ], label="8. A los 65 años, ¿Con quién cree que vivirá?")
 
-    crt1 = models.StringField(min=c(0), label="1. Una raqueta y una pelota cuestan $11.000 en total. La raqueta cuesta $10.000 más que la pelota. ¿Cuánto cuesta la pelota?")
-    crt2 = models.StringField(min=c(0), label="2. Si 5 máquinas tardan 5 minutos en fabricar 5 piezas, ¿cuánto tardarán 100 máquinas en fabricar 100 piezas?")
-    crt3 = models.StringField(min=c(0), label="3. En un lago hay una zona cubierta de lirios. El área de lirios se hace el doble de grande cada día. Si el área de lirios tarda 48 días en cubrir el lago entero, ¿cuántos días tardarán los lirios en cubrir la mitad del lago?")
+    crt1 = models.StringField(label="1. Una raqueta y una pelota cuestan $11.000 en total. La raqueta cuesta $10.000 más que la pelota. ¿Cuánto cuesta la pelota?")
+    crt2 = models.StringField(label="2. Si 5 máquinas tardan 5 minutos en fabricar 5 piezas, ¿cuánto tardarán 100 máquinas en fabricar 100 piezas?")
+    crt3 = models.StringField(label="3. En un lago hay una zona cubierta de lirios. El área de lirios se hace el doble de grande cada día. Si el área de lirios tarda 48 días en cubrir el lago entero, ¿cuántos días tardarán los lirios en cubrir la mitad del lago?")
 
     p_ocupation = models.StringField(label="1. Escriba el nombre de su profesión/ocupación/carrera")
 
@@ -511,7 +511,7 @@ class Player(BasePlayer):
         [7,'Nada'],
     ], label="3. ¿Qué están haciendo (hicieron) sus padres para mantenerse económicamente en la vejez?")
 
-    p_children = models.CurrencyField(min=c(0), label="5. ¿Cuántos hijos (hijas) tiene? [Si no tiene hijos/hijas escriba 0]")
+    p_children = models.IntegerField(label="5. ¿Cuántos hijos (hijas) tiene? [Si no tiene hijos/hijas escriba 0]")
 
     p_married = models.IntegerField(
     choices=[
