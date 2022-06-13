@@ -381,7 +381,7 @@ class Player(BasePlayer):
         [5,'Subsidios del gobierno'],
         [6,'Ingresos de inversiones (por ejemplo, arriendos)'],
         [7,'Ahorros'],
-    ], label="1. A los 65 años, ¿Cuál le gustaría que sea su principal fuente de ingreso?")
+    ], label="1. A los 65 años, ¿Cuál cree será su principal fuente de ingreso?")
 
     A2 = models.IntegerField(
     choices=[
@@ -391,12 +391,12 @@ class Player(BasePlayer):
         [4,'Entre $ 2.000.000 - $ 4.000.000'],
         [5,'Entre $ 4.000.000 - $ 8.000.000'],
         [6,'Mayor a $ 8.000.000'],
-    ], label="2. A los 65 años, ¿Cuál le gustaría que sea el rango de su ingreso mensual?")
+    ], label="2. A los 65 años, ¿Cuál cree será el rango de su ingreso mensual?")
 
-    A3 = models.CurrencyField(min=c(0), max=c(100000000), label="3. A los 65 años, ¿Cuánto le gustaría que sea su ingreso mensual?")
-    A4 = models.IntegerField(min=0, max=168, label="4. A los 65 años, ¿Cuántas horas a la semana le gustaría trabajar?")
-    A5 = models.CurrencyField(min=c(0), max=c(100000000), label="5. A los 65 años, ¿Cuánto dinero al mes le gustaría recibir de sus hijos?")
-    A6 = models.IntegerField(min=0, max=168, label="6. A los 65 años, ¿Cuántas horas de ayuda a la semana le gustaría recibir de sus hijos?")
+    A3 = models.StringField(min=c(0), max=c(100000000), label="3. A los 65 años, ¿Cuánto cree será su ingreso mensual?")
+    A4 = models.StringField(min=0, max=168, label="4. A los 65 años, ¿Cuántas horas a la semana cree que trabajará?")
+    A5 = models.StringField(min=c(0), max=c(100000000), label="5. A los 65 años, ¿Cuánto dinero cree que recibirá de sus hijos?")
+    A6 = models.StringField(min=0, max=168, label="6. A los 65 años, ¿Cuántas horas de ayuda a la semana cree que recibirá de sus hijos?")
 
     A7 = models.IntegerField(
     choices=[
@@ -405,7 +405,7 @@ class Player(BasePlayer):
         [3,'Casa de un familiar'],
         [4,'Hogar geriátrico público'],
         [5,'Hogar geriátrico privado'],
-    ], label="7. A los 65 años, ¿Dónde le gustaría vivir?")
+    ], label="7. A los 65 años, ¿Dónde cree que vivirá?")
 
     A8 = models.IntegerField(
     choices=[
@@ -415,11 +415,11 @@ class Player(BasePlayer):
         [4,'Con otro familiar'],
         [5,'Con conocidos'],
         [6,'Otro'],
-    ], label="8. A los 65 años, ¿Con quién le gustaría vivir?")
+    ], label="8. A los 65 años, ¿Con quién cree que vivirá?")
 
-    crt1 = models.CurrencyField(min=c(0), label="1. Una raqueta y una pelota cuestan $11.000 en total. La raqueta cuesta $10.000 más que la pelota. ¿Cuánto cuesta la pelota?")
-    crt2 = models.CurrencyField(min=c(0), label="2. Si 5 máquinas tardan 5 minutos en fabricar 5 piezas, ¿cuánto tardarán 100 máquinas en fabricar 100 piezas?")
-    crt3 = models.CurrencyField(min=c(0), label="3. En un lago hay una zona cubierta de lirios. El área de lirios se hace el doble de grande cada día. Si el área de lirios tarda 48 días en cubrir el lago entero, ¿cuántos días tardarán los lirios en cubrir la mitad del lago?")
+    crt1 = models.StringField(min=c(0), label="1. Una raqueta y una pelota cuestan $11.000 en total. La raqueta cuesta $10.000 más que la pelota. ¿Cuánto cuesta la pelota?")
+    crt2 = models.StringField(min=c(0), label="2. Si 5 máquinas tardan 5 minutos en fabricar 5 piezas, ¿cuánto tardarán 100 máquinas en fabricar 100 piezas?")
+    crt3 = models.StringField(min=c(0), label="3. En un lago hay una zona cubierta de lirios. El área de lirios se hace el doble de grande cada día. Si el área de lirios tarda 48 días en cubrir el lago entero, ¿cuántos días tardarán los lirios en cubrir la mitad del lago?")
 
     p_ocupation = models.StringField(label="1. Escriba el nombre de su profesión/ocupación/carrera")
 
@@ -448,9 +448,9 @@ class Player(BasePlayer):
         [5,'Más de 10 años'],
     ], label="4. ¿Cuántos años de experiencia laboral tiene?")
 
-    p_experience2 = models.CurrencyField(min=c(0), label="5. ¿Cuántos meses ha trabajado en su empresa actual?")
+    p_experience2 = models.StringField(label="5. ¿Cuántos meses ha trabajado en su empresa actual?")
 
-    p_selfemployed = models.CurrencyField(min=c(0), label="6. ¿Cuántos meses ha trabajado como idependiente? [Si no ha sido independiente nunca escriba 0]")
+    p_selfemployed = models.StringField( label="6. ¿Cuántos meses ha trabajado como idependiente? [Si no ha sido independiente nunca escriba 0]")
 
     p_casual = models.IntegerField(
     choices=[
